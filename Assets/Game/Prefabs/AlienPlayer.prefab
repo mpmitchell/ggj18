@@ -399,7 +399,8 @@ MonoBehaviour:
   speed: 30
   rotationalSpeed: 360
   spawner: {fileID: 0}
-  rocketPrefab: {fileID: 0}
+  rocketPrefab: {fileID: 1607715021003492, guid: ac298930a248a4c0fa9bc70172ce24ce,
+    type: 2}
   radiowavePrefab: {fileID: 0}
   laserPrefab: {fileID: 1725012734450122, guid: d49b0c92dae884ece8a2682798be2207,
     type: 2}

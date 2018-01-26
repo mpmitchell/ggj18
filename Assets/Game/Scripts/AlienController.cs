@@ -38,7 +38,7 @@ public class AlienController : MonoBehaviour {
 
     if (fire) {
       if (Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, mask)) {
-        Debug.Log("Fire Rocket");
+        Instantiate(rocketPrefab, rocketSpawn.position, rocketSpawn.rotation);
       } else if (Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, mask)) {
         Debug.Log("Fire Radiowave");
       } else if (Physics2D.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, mask)) {

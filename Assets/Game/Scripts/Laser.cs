@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Laser : MonoBehaviour {
 
@@ -7,19 +8,42 @@ public class Laser : MonoBehaviour {
   Transform origin;
   Rigidbody rigidbody;
 
+  public float damagePerTick;
+  public float timeBetweenTicks;
+  public float timeToLive;
+
+  float timer = 0f;
+
   void Start() {
     origin = transform;
     rigidbody = GetComponent<Rigidbody>();
+    StartCoroutine(Damage());
   }
 
   void Update() {
-    Vector3 transformation = transform.up * speed * Time.deltaTime;
-    rigidbody.MovePosition(transform.position + transform.TransformDirection(transformation));
+    transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
+    timer += Time.deltaTime;
+    if (timer > timeToLive) {
+      Destroy(gameObject);
+    }
   }
 
-  void OnTriggetEnter(Collider other) {
-    if (other.tag == "Planet") {
+  IEnumerator Damage() {
+    while (timer <= timeToLive) {
+      RaycastHit2D hit = Physics2D.Raycast(origin.position, origin.right, Mathf.Infinity, LayerMask.GetMask("Planet", "Towers", "EarthPlayer"));
+
+      if (hit.collider != null) {
+        hit.collider.gameObject.SendMessage("LaserHit", damagePerTick, SendMessageOptions.DontRequireReceiver);
+        Debug.Log(hit.collider.gameObject);
+      }
+      yield return new WaitForSeconds(timeBetweenTicks);
+    }
+  }
+
+  void OnCollisionEnter2D(Collision2D collision) {
+    if (collision.gameObject.tag == "Planet") {
       speed = 0f;
+      Destroy(rigidbody);
     }
   }
 }

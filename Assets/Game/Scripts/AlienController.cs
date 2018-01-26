@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class AlienController : MonoBehaviour {
 
@@ -13,9 +14,11 @@ public class AlienController : MonoBehaviour {
   public Transform laserSpawn;
 
   Renderer renderer;
+  int mask;
 
   void Start() {
     renderer = GetComponent<Renderer>();
+    mask = LayerMask.GetMask("Planet", "Towers", "EarthPlayer");
   }
 
   void Update() {
@@ -27,26 +30,35 @@ public class AlienController : MonoBehaviour {
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);
     transform.Rotate(rotate * Vector3.forward);
 
-    if ((horiztontal != 0f || vertical != 0f) && !fire) {
-      renderer.enabled = false;
-    } else {
-      renderer.enabled = true;
-    }
+    // if ((horiztontal != 0f || vertical != 0f) && !fire) {
+    //   StartCoroutine(FadeOut());
+    // } else {
+    //   StopAllCoroutines();
+    // }
 
     if (fire) {
-      if (Physics.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, LayerMask.GetMask("Planet"))) {
+      if (Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, mask)) {
         Debug.Log("Fire Rocket");
-      } else if (Physics.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, LayerMask.GetMask("Planet"))) {
+      } else if (Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, mask)) {
         Debug.Log("Fire Radiowave");
-      } else if (Physics.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, LayerMask.GetMask("Planet"))) {
+      } else if (Physics2D.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, mask)) {
         Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation);
       }
     }
   }
 
-  void OnCollisionEnter(Collision collision) {
-    if (collision.other.tag == "Planet") {
+  void OnCollisionEnter2D(Collision2D collision) {
+    if (collision.gameObject.tag == "Planet") {
       spawner.DestroyCurrent();
+    }
+  }
+
+  IEnumerator FadeOut() {
+    Color color = renderer.material.color;
+    while (color.a > 0f) {
+      color.a -= 0.1f;
+      renderer.material.color = color;
+      yield return new WaitForSeconds(0.1f);
     }
   }
 }

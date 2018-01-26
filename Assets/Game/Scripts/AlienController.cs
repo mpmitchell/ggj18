@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackerController : MonoBehaviour {
+public class AlienController : MonoBehaviour {
 
 	public float speed;
   public float rotationalSpeed;
@@ -25,6 +25,13 @@ public class AttackerController : MonoBehaviour {
       renderer.enabled = false;
     } else {
       renderer.enabled = true;
+    }
+  }
+
+  void OnCollisionEnter(Collision collision) {
+    if (collision.other.tag == "Planet") {
+      Destroy(gameObject);
+      Debug.Log("Alien Destroyed");
     }
   }
 }

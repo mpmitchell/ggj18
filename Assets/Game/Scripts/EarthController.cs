@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DefenderController : MonoBehaviour {
+public class EarthController : MonoBehaviour {
 
   public float speed;
 

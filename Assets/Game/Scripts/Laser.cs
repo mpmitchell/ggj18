@@ -43,9 +43,7 @@ public class Laser : MonoBehaviour {
   }
 
   void OnCollisionEnter2D(Collision2D collision) {
-    if (collision.gameObject.tag == "Planet") {
-      speed = 0f;
-      Destroy(rigidbody);
-    }
+    speed = 0f;
+    Destroy(rigidbody);
   }
 }

@@ -130,6 +130,6 @@ InputManager:
     sensitivity: 0.1
     snap: 0
     invert: 0
-    type: 1
+    type: 0
     axis: 1
     joyNum: 0

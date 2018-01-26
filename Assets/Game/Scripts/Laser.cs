@@ -5,8 +5,9 @@ public class Laser : MonoBehaviour {
 
   public float speed;
 
-  Transform origin;
-  Rigidbody rigidbody;
+  Vector3 originPosition;
+  Vector3 originRight;
+  Rigidbody2D rigidbody;
 
   public float damagePerTick;
   public float timeBetweenTicks;
@@ -15,8 +16,9 @@ public class Laser : MonoBehaviour {
   float timer = 0f;
 
   void Start() {
-    origin = transform;
-    rigidbody = GetComponent<Rigidbody>();
+    originPosition = transform.position;
+    originRight = transform.right;
+    rigidbody = GetComponent<Rigidbody2D>();
     StartCoroutine(Damage());
   }
 
@@ -30,7 +32,7 @@ public class Laser : MonoBehaviour {
 
   IEnumerator Damage() {
     while (timer <= timeToLive) {
-      RaycastHit2D hit = Physics2D.Raycast(origin.position, origin.right, Mathf.Infinity, LayerMask.GetMask("Planet", "Towers", "EarthPlayer"));
+      RaycastHit2D hit = Physics2D.Raycast(originPosition, originRight, Mathf.Infinity, LayerMask.GetMask("Planet", "Towers", "EarthPlayer"));
 
       if (hit.collider != null) {
         hit.collider.gameObject.SendMessage("LaserHit", damagePerTick, SendMessageOptions.DontRequireReceiver);

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33496218064438674}
   - component: {fileID: 65651920623631840}
   - component: {fileID: 23575575360563494}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Transmission Tower (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33254537625821302}
   - component: {fileID: 65670048586349446}
   - component: {fileID: 23094466857475812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Transmission Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

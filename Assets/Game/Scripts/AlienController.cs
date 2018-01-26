@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AlienController : MonoBehaviour {
 
 	public float speed;
   public float rotationalSpeed;
+  public AlienSpawner spawner;
 
   Renderer renderer;
 
@@ -22,7 +21,7 @@ public class AlienController : MonoBehaviour {
     transform.Rotate(rotate * Vector3.forward);
 
     if (horiztontal != 0f || vertical != 0f) {
-      renderer.enabled = false;
+      // renderer.enabled = false;
     } else {
       renderer.enabled = true;
     }
@@ -30,8 +29,7 @@ public class AlienController : MonoBehaviour {
 
   void OnCollisionEnter(Collision collision) {
     if (collision.other.tag == "Planet") {
-      Destroy(gameObject);
-      Debug.Log("Alien Destroyed");
+      spawner.DestroyCurrent();
     }
   }
 }

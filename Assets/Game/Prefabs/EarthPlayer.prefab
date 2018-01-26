@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114196516771519092}
   - component: {fileID: 54541591741735518}
   - component: {fileID: 153214318643189600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EarthPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

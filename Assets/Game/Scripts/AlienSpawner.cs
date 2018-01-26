@@ -15,5 +15,6 @@ public class AlienSpawner : MonoBehaviour {
   IEnumerator Spawn() {
     yield return new WaitForSeconds(spawnTimer);
     current = Instantiate<GameObject>(alienPrefab, transform.position, Quaternion.identity);
+    current.GetComponent<AlienController>().spawner = this;
   }
 }

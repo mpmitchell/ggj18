@@ -21,7 +21,7 @@ public class AlienController : MonoBehaviour {
     transform.Rotate(rotate * Vector3.forward);
 
     if (horiztontal != 0f || vertical != 0f) {
-      // renderer.enabled = false;
+      renderer.enabled = false;
     } else {
       renderer.enabled = true;
     }

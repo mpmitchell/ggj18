@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 
-public class Controller : MonoBehaviour {
+public class DefenderController : MonoBehaviour {
 
   public float speed = 90f;
-  public string inputAxis;
 
   void Update() {
     transform.RotateAround(
       Vector3.zero,
       Vector3.forward,
-      -Input.GetAxis(inputAxis) * speed * Time.deltaTime
+      -Input.GetAxis("Horizontal2") * speed * Time.deltaTime
     );
   }
 }

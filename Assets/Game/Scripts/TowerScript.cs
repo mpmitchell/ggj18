@@ -21,6 +21,8 @@ public class TowerScript : MonoBehaviour {
     public bool transmissionOff;
     public int transmissionOffTimer;
 
+    new public MeshRenderer renderer;
+
     void Start ()
     {
         transmissionOffTimer = 240;
@@ -30,10 +32,10 @@ public class TowerScript : MonoBehaviour {
         script2 = tower2.GetComponent<TowerScript>();
         script3 = tower3.GetComponent<TowerScript>();
     }
-	
-	
+
+
 	void Update ()
-    {   
+    {
         if (transmissionOff == true)
         {
             transmissionOffTimer--;
@@ -67,6 +69,8 @@ public class TowerScript : MonoBehaviour {
         {
             Debug.Log("DEFENDING PLAYER WINS!");
         }
+
+        renderer.material.color = Color.Lerp(Color.red, Color.white, (float)health / 100f);
 	}
 
     public void LaserHit(int damagePerTick)

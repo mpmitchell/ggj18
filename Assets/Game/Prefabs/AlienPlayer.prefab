@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4708181097291488}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 114939242100488656}
   - component: {fileID: 50867730388751474}
   - component: {fileID: 61504319566977778}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AlienPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4506457954364914}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Radiowave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4756593005576022}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,4 +321,4 @@ MonoBehaviour:
   laserSpawn: {fileID: 4708181097291488}
   minOpacity: 0
   fadeSpeed: 2
-  pivot: {fileID: 0}
+  pivot: {fileID: 4414448366085692}

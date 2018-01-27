@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7e664af5571fe4feebde02772e59f05d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,3 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 90
+  antiRadiowaveMaterial: {fileID: 2100000, guid: 368e0176340544a12b62f132adf5dd9b,
+    type: 2}
+  antiRocketMaterial: {fileID: 2100000, guid: 7e664af5571fe4feebde02772e59f05d, type: 2}
+  antiLaserMaterial: {fileID: 2100000, guid: 5d689056c5c534a7d8dc7b8582736251, type: 2}

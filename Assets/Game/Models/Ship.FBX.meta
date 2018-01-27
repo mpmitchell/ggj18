@@ -20,16 +20,24 @@ ModelImporter:
     2300002: Radiowaves
     2300004: Rocket
     2300006: Ship
+    2300008: //RootNode
     3300000: Laser
     3300002: Radiowaves
     3300004: Rocket
     3300006: Ship
+    3300008: //RootNode
     4300000: Ship
     4300002: Radiowaves
     4300004: Laser
     4300006: Rocket
+    4300008: Sphere001
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: d91c10fe832804f5f97d9b43d09fd076, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

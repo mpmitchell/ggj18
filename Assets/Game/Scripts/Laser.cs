@@ -6,6 +6,7 @@ public class Laser : MonoBehaviour {
   public float timeToLive;
   public float timeBetweenTicks;
   public float damagePerTick;
+  public Transform particleEffect;
 
   LineRenderer lineRenderer;
   float timer = 0f;
@@ -25,10 +26,13 @@ public class Laser : MonoBehaviour {
 
     if (aimAssistHit.collider != null && laserShieldHit == null) {
       lineRenderer.SetPosition(1, aimAssistHit.transform.parent.position);
+      particleEffect.position = aimAssistHit.transform.parent.position;
     } else if (hit.collider != null) {
       lineRenderer.SetPosition(1, hit.point);
+      particleEffect.position = hit.point;
     } else {
       lineRenderer.SetPosition(1, spawn.position + spawn.right * 100f);
+      particleEffect.position = spawn.position + spawn.right * 100f;
     }
 
     damageTimer += Time.deltaTime;

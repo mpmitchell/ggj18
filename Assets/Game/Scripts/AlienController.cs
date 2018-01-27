@@ -140,12 +140,6 @@ public class AlienController : MonoBehaviour {
     }
   }
 
-  void OnCollisionEnter2D(Collision2D collision) {
-    if (collision.gameObject.tag == "Planet") {
-      // spawner.DestroyCurrent();
-    }
-  }
-
   void OnTriggerEnter2D(Collider2D collider) {
     firing = 1f;
     if (collider.gameObject.tag == "OrbitDeadly") {

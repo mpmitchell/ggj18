@@ -25,6 +25,8 @@ public class AlienController : MonoBehaviour {
   public float fadeSpeed;
   float firing = 0f;
 
+  public Transform pivot;
+
   void Start() {
     renderer = GetComponentInChildren<MeshRenderer>();
   }
@@ -35,11 +37,9 @@ public class AlienController : MonoBehaviour {
     float rotate = Input.GetAxis("AlienRotation") * rotationalSpeed * Time.deltaTime;
     bool fire = Input.GetButtonDown("AlienFire");
 
-    if (rotate == 0f && (horiztontal != 0f || vertical != 0f)) {
-      Vector3 dir = Vector3.zero - transform.position;
-      float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-      transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 15f, Vector3.forward), 0.1f);
-    }
+    Vector3 dir = Vector3.zero - transform.position;
+    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);
     Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
@@ -52,7 +52,7 @@ public class AlienController : MonoBehaviour {
     position.x = Mathf.Clamp01(position.x);
     position.y = Mathf.Clamp01(position.y);
     transform.position = Camera.main.ViewportToWorldPoint(position);
-    transform.Rotate(rotate * Vector3.forward);
+    pivot.Rotate(rotate * Vector3.forward, Space.World);
 
     if (firing > 0f) {
       firing -= Time.deltaTime;
@@ -63,9 +63,9 @@ public class AlienController : MonoBehaviour {
       if (color.a <= 0f) {
         renderer.enabled = false;
       }
-      color.a = color.a - 1f * fadeSpeed * Time.deltaTime;
-      color.a = Mathf.Max(color.a, minOpacity);
-      renderer.material.color = color;
+      // color.a = color.a - 1f * fadeSpeed * Time.deltaTime;
+      // color.a = Mathf.Max(color.a, minOpacity);
+      // renderer.material.color = color;
     } else {
       renderer.enabled = true;
       Color color = renderer.material.color;

@@ -18,8 +18,10 @@ public class AlienController : MonoBehaviour {
   public Transform laserSpawn;
 
     public Image rocketCD;
+    public Image laserCD;
+    public Image radioCD;
 
-  new Rigidbody2D rigidbody;
+    new Rigidbody2D rigidbody;
   public float repulsiveForce;
 
   new MeshRenderer renderer;
@@ -86,11 +88,35 @@ public class AlienController : MonoBehaviour {
       renderer.material.color = color;
     }
 
-    if (rocketTimer >= 0f) rocketTimer -= Time.deltaTime;
-    if (radiowaveTimer >= 0f) radiowaveTimer -= Time.deltaTime;
-    if (laserTimer >= 0f) laserTimer -= Time.deltaTime;
+        if (rocketTimer >= 0f)
+        {
+            rocketTimer -= Time.deltaTime;
+            rocketCD.GetComponent<Image>().color = new Color(0.2f,0.2f,0.2f,1f) ;
+        }
+        else
+        {
+            rocketCD.GetComponent<Image>().color = Color.white;
+        }
+        if (radiowaveTimer >= 0f)
+        {
+            radiowaveTimer -= Time.deltaTime;
+            radioCD.GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.2f, 1f);
+        }
+        else
+        {
+            radioCD.GetComponent<Image>().color = Color.white;
+        }
+        if (laserTimer >= 0f)
+        {
+            laserTimer -= Time.deltaTime;
+            laserCD.GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.2f, 1f);
+        }
+        else
+        {
+            laserCD.GetComponent<Image>().color = Color.white;
+        }
 
-    if (fire) {
+        if (fire) {
       float r = rocketSpawn.position.magnitude;
       float rw = radiowaveSpawn.position.magnitude;
       float l = laserSpawn.position.magnitude;

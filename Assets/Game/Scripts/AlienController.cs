@@ -147,6 +147,8 @@ public class AlienController : MonoBehaviour {
 
     if (speedDownTimer > 0f) {
       speedDownTimer -= Time.deltaTime;
+      float magnitude = (Random.value <= 0.5f ? -1f : 1f) * Random.Range(90f, 180f);
+      pivot.Rotate(magnitude * Vector3.forward, Space.World);
       if (speedDownTimer <= 0f) {
         speed = fullSpeed;
       }
@@ -160,14 +162,12 @@ public class AlienController : MonoBehaviour {
     }
   }
 
-  public float torque;
   void SonarHit(Vector3 origin) {
     if (speedDownTimer <= 0f) {
       speed = speed * speedDownMultiplier;
       speedDownTimer = speedDownTime;
 
       rigidbody.AddForce((transform.position - origin).normalized * 30f, ForceMode2D.Impulse);
-      pivot.GetComponent<Rigidbody2D>().AddTorque(torque, ForceMode2D.Impulse);
     }
   }
 }

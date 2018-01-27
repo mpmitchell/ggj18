@@ -35,9 +35,15 @@ public class AlienController : MonoBehaviour {
 
   public Transform pivot;
 
+  public float speedDownMultiplier;
+  public float speedDownTime;
+  float fullSpeed;
+  float speedDownTimer = 0f;
+
   void Start() {
     renderer = GetComponentInChildren<MeshRenderer>();
     rigidbody = GetComponent<Rigidbody2D>();
+    fullSpeed = speed;
   }
 
   void Update() {
@@ -67,7 +73,7 @@ public class AlienController : MonoBehaviour {
       firing -= Time.deltaTime;
     }
 
-    if ((horiztontal != 0f || vertical != 0f) && firing <= 0f) {
+    if ((horiztontal != 0f || vertical != 0f) && firing <= 0f && speedDownTimer <= 0f) {
       Color color = renderer.material.color;
       if (color.a <= 0f) {
         renderer.enabled = false;
@@ -138,12 +144,30 @@ public class AlienController : MonoBehaviour {
         firing = laserCooldown;
       }
     }
+
+    if (speedDownTimer > 0f) {
+      speedDownTimer -= Time.deltaTime;
+      if (speedDownTimer <= 0f) {
+        speed = fullSpeed;
+      }
+    }
   }
 
   void OnTriggerEnter2D(Collider2D collider) {
     firing = 1f;
     if (collider.gameObject.tag == "OrbitDeadly") {
       rigidbody.AddForce(transform.position.normalized * repulsiveForce, ForceMode2D.Impulse);
+    }
+  }
+
+  public float torque;
+  void SonarHit(Vector3 origin) {
+    if (speedDownTimer <= 0f) {
+      speed = speed * speedDownMultiplier;
+      speedDownTimer = speedDownTime;
+
+      rigidbody.AddForce((transform.position - origin).normalized * 30f, ForceMode2D.Impulse);
+      pivot.GetComponent<Rigidbody2D>().AddTorque(torque, ForceMode2D.Impulse);
     }
   }
 }

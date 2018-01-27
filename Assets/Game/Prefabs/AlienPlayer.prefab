@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4414448366085692}
+  - component: {fileID: 50260349663562640}
   m_Layer: 9
   m_Name: Pivot
   m_TagString: Untagged
@@ -231,6 +232,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274951963271130}
   m_Mesh: {fileID: 4300008, guid: 04d90c92c1fe4467e8fcbd94eb95e9d7, type: 3}
+--- !u!50 &50260349663562640
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535661715285684}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!50 &50867730388751474
 Rigidbody2D:
   serializedVersion: 4
@@ -307,7 +328,7 @@ MonoBehaviour:
   speed: 20
   rotationalSpeed: -220
   rocketCooldown: 2
-  radiowaveCooldown: 5
+  radiowaveCooldown: 15
   laserCooldown: 4
   spawner: {fileID: 0}
   rocketPrefab: {fileID: 1607715021003492, guid: ac298930a248a4c0fa9bc70172ce24ce,
@@ -319,7 +340,11 @@ MonoBehaviour:
   rocketSpawn: {fileID: 4756593005576022}
   radiowaveSpawn: {fileID: 4506457954364914}
   laserSpawn: {fileID: 4708181097291488}
-  repulsiveForce: 75
+  rocketCD: {fileID: 0}
+  repulsiveForce: 140
   minOpacity: 0
-  fadeSpeed: 2
+  fadeSpeed: 4
   pivot: {fileID: 4414448366085692}
+  speedDownMultiplier: 0.5
+  speedDownTime: 5
+  torque: 10

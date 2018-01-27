@@ -23,7 +23,7 @@ public class TowerScript : MonoBehaviour {
 
     void Start ()
     {
-        transmissionOffTimer = 300;
+        transmissionOffTimer = 240;
         health = 100;
         earthControllerScript = earthController.GetComponent<EarthController>();
         script1 = tower1.GetComponent<TowerScript>();
@@ -40,7 +40,7 @@ public class TowerScript : MonoBehaviour {
             earthControllerScript.speed = 100;
             if (transmissionOffTimer <= 0)
             {
-                transmissionOffTimer = 300;
+                transmissionOffTimer = 240;
                 transmissionOff = false;
             }
         }

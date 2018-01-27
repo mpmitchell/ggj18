@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class AlienController : MonoBehaviour {
@@ -15,6 +16,8 @@ public class AlienController : MonoBehaviour {
   public Transform rocketSpawn;
   public Transform radiowaveSpawn;
   public Transform laserSpawn;
+
+    public Image rocketCD;
 
   new Rigidbody2D rigidbody;
   public float repulsiveForce;

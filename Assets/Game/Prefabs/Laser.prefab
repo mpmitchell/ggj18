@@ -55,7 +55,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   timeToLive: 4
   timeBetweenTicks: 1
-  damagePerTick: 5
+  damagePerTick: 10
 --- !u!120 &120019795439159892
 LineRenderer:
   m_ObjectHideFlags: 1

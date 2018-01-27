@@ -1,42 +1,19 @@
 fileFormatVersion: 2
 guid: 323226766f6e3cd4388831a968026bfe
-timeCreated: 1517043472
+timeCreated: 1517048487
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Box001
-    100002: Cylinder001
-    100004: dish
-    100006: Pyramid001
-    100008: //RootNode
-    100010: Sphere002
-    100012: Sphere003
-    100014: 'tower '
-    400000: Box001
-    400002: Cylinder001
-    400004: dish
-    400006: Pyramid001
-    400008: //RootNode
-    400010: Sphere002
-    400012: Sphere003
-    400014: 'tower '
+    100000: dish
+    100002: //RootNode
+    400000: dish
+    400002: //RootNode
     2100000: No Name
-    2300000: Box001
-    2300002: Cylinder001
-    2300004: Pyramid001
-    2300006: Sphere002
-    2300008: Sphere003
-    3300000: Box001
-    3300002: Cylinder001
-    3300004: Pyramid001
-    3300006: Sphere002
-    3300008: Sphere003
-    4300000: Cylinder001
-    4300002: Sphere002
-    4300004: Sphere003
-    4300006: Pyramid001
-    4300008: Box001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Box001
+    7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
   materials:

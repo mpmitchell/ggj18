@@ -4,8 +4,6 @@ public class Planet : MonoBehaviour {
 
     public int health;
 
-    new public MeshRenderer renderer;
-
     void Start()
     {
         health = 600;
@@ -14,8 +12,6 @@ public class Planet : MonoBehaviour {
     {
         if (health <= 0)
             Destroy(this.gameObject);
-
-        renderer.material.color = Color.Lerp(Color.red, Color.white, (float)health / 600f);
     }
 
     void LaserHit(int damagePerTick) {

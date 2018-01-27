@@ -9,15 +9,15 @@ public class EarthController : MonoBehaviour {
   public Material antiLaserMaterial;
 
   new MeshRenderer renderer;
-  ShieldType shield = ShieldType.Rocket;
 
-  enum ShieldType {
-    Radiowave, Rocket, Laser
-  }
+  public GameObject sonarPrefab;
+  public Transform sonarSpawn;
+  public float sonarCooldown;
+  float sonarTimer = 0f;
 
   void Start() {
     renderer = satellite.GetComponent<MeshRenderer>();
-    }
+  }
 
   void Update() {
     transform.RotateAround(
@@ -27,41 +27,24 @@ public class EarthController : MonoBehaviour {
     );
 
     if (Input.GetButtonDown("Anti-Radiowave")) {
-      shield = ShieldType.Radiowave;
       renderer.material = antiRadiowaveMaterial;
       gameObject.layer = LayerMask.NameToLayer("RadiowaveShield");
     } else if (Input.GetButtonDown("Anti-Rocket")) {
-      shield = ShieldType.Rocket;
       renderer.material = antiRocketMaterial;
       gameObject.layer = LayerMask.NameToLayer("RocketShield");
     } else if (Input.GetButtonDown("Anti-Laser")) {
-      shield = ShieldType.Laser;
       renderer.material = antiLaserMaterial;
       gameObject.layer = LayerMask.NameToLayer("LaserShield");
     }
-  }
 
-  void LaserHit(float damage) {
-    if (shield == ShieldType.Laser) {
-      //
+    if (sonarTimer <= 0f) {
+      if (Input.GetButtonDown("EarthFire")) {
+        Sonar sonar = Instantiate(sonarPrefab).GetComponent<Sonar>();
+        sonar.spawn = sonarSpawn;
+        sonarTimer = sonarCooldown;
+      }
     } else {
-      //
-    }
-  }
-
-  void RocketHit(float damage) {
-    if (shield == ShieldType.Rocket) {
-      //
-    } else {
-      //
-    }
-  }
-
-  void RadiowaveHit() {
-    if (shield == ShieldType.Radiowave) {
-      //
-    } else {
-      //
+      sonarTimer -= Time.deltaTime;
     }
   }
 }

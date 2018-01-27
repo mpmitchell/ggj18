@@ -63,9 +63,9 @@ public class AlienController : MonoBehaviour {
       if (color.a <= 0f) {
         renderer.enabled = false;
       }
-      // color.a = color.a - 1f * fadeSpeed * Time.deltaTime;
-      // color.a = Mathf.Max(color.a, minOpacity);
-      // renderer.material.color = color;
+      color.a = color.a - 1f * fadeSpeed * Time.deltaTime;
+      color.a = Mathf.Max(color.a, minOpacity);
+      renderer.material.color = color;
     } else {
       renderer.enabled = true;
       Color color = renderer.material.color;

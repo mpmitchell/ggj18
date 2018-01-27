@@ -16,8 +16,7 @@ public class AlienController : MonoBehaviour {
   public Transform radiowaveSpawn;
   public Transform laserSpawn;
 
-  MeshRenderer renderer;
-  int mask;
+  new MeshRenderer renderer;
   float rocketTimer = 0f;
   float radiowaveTimer = 0f;
   float laserTimer = 0f;
@@ -28,7 +27,6 @@ public class AlienController : MonoBehaviour {
 
   void Start() {
     renderer = GetComponentInChildren<MeshRenderer>();
-    mask = LayerMask.GetMask("Planet", "Towers", "EarthPlayer");
   }
 
   void Update() {

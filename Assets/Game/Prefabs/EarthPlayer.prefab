@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114196516771519092}
   - component: {fileID: 61410216760834816}
   - component: {fileID: 50324475448612222}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: EarthPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4723148395764482}
   - component: {fileID: 33241436929350532}
   - component: {fileID: 23139905397581146}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Satellite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

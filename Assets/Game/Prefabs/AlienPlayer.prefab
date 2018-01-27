@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  rotationalSpeed: 360
+  rotationalSpeed: -360
   rocketCooldown: 2
   radiowaveCooldown: 5
   laserCooldown: 4

@@ -43,7 +43,8 @@ public class AlienController : MonoBehaviour {
         Radiowave radiowave = Instantiate(radiowavePrefab, Vector3.zero, radiowaveSpawn.rotation).GetComponent<Radiowave>();
         radiowave.spawn = radiowaveSpawn;
       } else if (Physics2D.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, mask)) {
-        Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation);
+        Laser laser = Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation).GetComponent<Laser>();
+        laser.spawn = laserSpawn;
       }
     }
   }

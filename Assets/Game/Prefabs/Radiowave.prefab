@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4116638250806380}
   - component: {fileID: 120026241159077572}
   - component: {fileID: 114915826739678612}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Radiowave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: badc4e519a1b2435e90fd0906d7ea865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: {fileID: 0}
+  timeToLive: 2
 --- !u!120 &120026241159077572
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -138,5 +140,5 @@ LineRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0

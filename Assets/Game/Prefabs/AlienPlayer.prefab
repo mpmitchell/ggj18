@@ -527,7 +527,7 @@ MonoBehaviour:
     type: 2}
   radiowavePrefab: {fileID: 1024815614859420, guid: 60c74e3544b234acabd63a253f448f75,
     type: 2}
-  laserPrefab: {fileID: 1725012734450122, guid: d49b0c92dae884ece8a2682798be2207,
+  laserPrefab: {fileID: 1400627405678390, guid: d49b0c92dae884ece8a2682798be2207,
     type: 2}
   rocketSpawn: {fileID: 4602607814802690}
   radiowaveSpawn: {fileID: 4666938134827860}

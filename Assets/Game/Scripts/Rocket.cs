@@ -17,7 +17,6 @@ public class Rocket : MonoBehaviour {
 
   void OnCollisionEnter2D(Collision2D collision) {
     collision.gameObject.SendMessage("RocketHit", damage, SendMessageOptions.DontRequireReceiver);
-    Debug.Log(collision.gameObject);
     Destroy(gameObject);
   }
 }

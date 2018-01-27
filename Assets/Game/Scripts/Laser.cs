@@ -1,49 +1,44 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Laser : MonoBehaviour {
 
-  public float speed;
-
-  Vector3 originPosition;
-  Vector3 originRight;
-  Rigidbody2D rigidbody;
-
-  public float damagePerTick;
-  public float timeBetweenTicks;
+  public Transform spawn;
   public float timeToLive;
+  public float timeBetweenTicks;
+  public float damagePerTick;
 
+  LineRenderer lineRenderer;
   float timer = 0f;
+  float damageTimer = 0f;
 
   void Start() {
-    originPosition = transform.position;
-    originRight = transform.right;
-    rigidbody = GetComponent<Rigidbody2D>();
-    StartCoroutine(Damage());
+    lineRenderer = GetComponent<LineRenderer>();
   }
 
   void Update() {
-    transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
-    timer += Time.deltaTime;
-    if (timer > timeToLive) {
-      Destroy(gameObject);
+    Vector3 position = spawn.transform.position;
+
+    RaycastHit2D hit = Physics2D.Raycast(spawn.position, spawn.right, Mathf.Infinity, LayerMask.GetMask("Planet", "Towers", "EarthPlayer"));
+
+    if (hit.collider != null) {
+      lineRenderer.enabled = true;
+      lineRenderer.SetPosition(0, position);
+      lineRenderer.SetPosition(1, hit.point);
+    } else {
+      lineRenderer.enabled = false;
     }
-  }
 
-  IEnumerator Damage() {
-    while (timer <= timeToLive) {
-      RaycastHit2D hit = Physics2D.Raycast(originPosition, originRight, Mathf.Infinity, LayerMask.GetMask("Planet", "Towers", "EarthPlayer"));
-
+    damageTimer += Time.deltaTime;
+    if (damageTimer >= timeBetweenTicks) {
       if (hit.collider != null) {
         hit.collider.gameObject.SendMessage("LaserHit", damagePerTick, SendMessageOptions.DontRequireReceiver);
-        Debug.Log(hit.collider.gameObject);
       }
-      yield return new WaitForSeconds(timeBetweenTicks);
+      damageTimer = 0f;
     }
-  }
 
-  void OnCollisionEnter2D(Collision2D collision) {
-    speed = 0f;
-    Destroy(rigidbody);
+    timer += Time.deltaTime;
+    if (timer >= timeToLive) {
+      Destroy(gameObject);
+    }
   }
 }

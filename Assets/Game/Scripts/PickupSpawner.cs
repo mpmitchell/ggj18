@@ -52,7 +52,7 @@ public class PickupSpawner : MonoBehaviour {
               0f
             );
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(Vector2.zero, earthCircleRadius, LayerMask.GetMask("Pickup"));
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(Vector2.zero, earthCircleRadius * 1.5f, LayerMask.GetMask("Pickup"));
 
             foreach (Collider2D collider in colliders) {
               if (collider.transform == pickup) {

@@ -21,6 +21,8 @@ public class Radiowave : MonoBehaviour {
       lineRenderer.enabled = true;
       lineRenderer.SetPosition(0, position);
       lineRenderer.SetPosition(1, hit.point);
+
+      hit.collider.SendMessage("RadiowaveHit", SendMessageOptions.DontRequireReceiver);
     } else {
       lineRenderer.enabled = false;
     }

@@ -2,12 +2,25 @@
 
 public class Planet : MonoBehaviour {
 
-  void LaserHit(float damage) {
-    //
+    public int health;
+
+    void Start()
+    {
+        health = 600;
+    }
+    private void Update()
+    {
+        if (health <= 0)
+            Destroy(this.gameObject);
+    }
+
+    void LaserHit(int damagePerTick) {
+        health -= damagePerTick;
+        Debug.Log(health);
   }
 
-  void RocketHit(float damage) {
-    //
+  void RocketHit(int damage) {
+        health -= damage;
   }
 
   void RadiowaveHit() {

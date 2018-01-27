@@ -8,8 +8,10 @@ public class AlienSpawner : MonoBehaviour {
   public GameObject current;
 
   public void DestroyCurrent() {
-    Destroy(current);
-    StartCoroutine(Spawn());
+    if (current != null) {
+      Destroy(current);
+      StartCoroutine(Spawn());
+    }
   }
 
   IEnumerator Spawn() {

@@ -17,6 +17,7 @@ public class AlienController : MonoBehaviour {
   public Transform laserSpawn;
 
   MeshRenderer[] renderers;
+  MeshRenderer renderer;
   int mask;
   public float rocketTimer = 0f;
   public float radiowaveTimer = 0f;
@@ -24,6 +25,7 @@ public class AlienController : MonoBehaviour {
 
   void Start() {
     renderers = GetComponentsInChildren<MeshRenderer>();
+    renderer = GetComponentInChildren<MeshRenderer>();
     mask = LayerMask.GetMask("Planet", "Towers", "EarthPlayer");
   }
 
@@ -36,15 +38,17 @@ public class AlienController : MonoBehaviour {
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);
     transform.Rotate(rotate * Vector3.forward);
 
-    if (horiztontal != 0f || vertical != 0f) {
-      StartCoroutine(FadeOut());
+    if ((horiztontal != 0f || vertical != 0f) && !fire) {
+      renderer.enabled = false;
+      // StartCoroutine(FadeOut());
     } else {
-      foreach (MeshRenderer renderer in renderers) {
-        Color color = renderer.material.color;
-        color.a = 1f;
-        renderer.material.color = color;
-      }
-      StopAllCoroutines();
+      renderer.enabled = true;
+      // foreach (MeshRenderer renderer in renderers) {
+      //   Color color = renderer.material.color;
+      //   color.a = 1f;
+      //   renderer.material.color = color;
+      // }
+      // StopAllCoroutines();
     }
 
     if (rocketTimer >= 0f) rocketTimer -= Time.deltaTime;

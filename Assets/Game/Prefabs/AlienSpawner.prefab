@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740049269589192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5894347, y: -0.5938832, z: -0.1484375}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,4 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0583911ab711e47f0b6f2f64265afcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alien: {fileID: 114363030882702522, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
+  spawnTimer: 5
+  alienPrefab: {fileID: 1716132287064172, guid: 95cebc876cdcc4dd4b9530d7f009ba21,
+    type: 2}
+  current: {fileID: 0}

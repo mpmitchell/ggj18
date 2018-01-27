@@ -17,7 +17,11 @@ public class Sonar : MonoBehaviour {
     lineRenderer.SetPosition(0, position);
     lineRenderer.SetPosition(1, spawn.position + -spawn.forward * 100f);
 
-    Debug.DrawRay(spawn.position, -spawn.forward * 10f, Color.white, 10f);
+    Debug.DrawRay(spawn.position, -spawn.forward * 1000f, Color.white, 2f);
+    Debug.DrawRay(spawn.position - spawn.right * 2, -spawn.forward * 1000f, Color.white, 2f);
+    Debug.DrawRay(spawn.position + spawn.right * 2, -spawn.forward * 1000f, Color.white, 2f);
+    Debug.DrawRay(spawn.position - spawn.right, -spawn.forward * 1000f, Color.white, 2f);
+    Debug.DrawRay(spawn.position + spawn.right, -spawn.forward * 1000f, Color.white, 2f);
 
     RaycastHit2D hit = Physics2D.Raycast(spawn.position, -spawn.forward, Mathf.Infinity, LayerMask.GetMask("AlienPlayer"));
     RaycastHit2D hit2 = Physics2D.Raycast(spawn.position - spawn.right * 2, -spawn.forward, Mathf.Infinity, LayerMask.GetMask("AlienPlayer"));

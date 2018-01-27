@@ -47,4 +47,10 @@ public class EarthController : MonoBehaviour {
       sonarTimer -= Time.deltaTime;
     }
   }
+
+  void OnTriggerEnter2D(Collider2D collider) {
+    if (collider.gameObject.tag == "EarthPickup") {
+      collider.gameObject.SendMessage("Pickup", this);
+    }
+  }
 }

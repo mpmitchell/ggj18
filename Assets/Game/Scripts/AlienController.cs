@@ -156,9 +156,11 @@ public class AlienController : MonoBehaviour {
   }
 
   void OnTriggerEnter2D(Collider2D collider) {
-    firing = 1f;
     if (collider.gameObject.tag == "OrbitDeadly") {
+      firing = 1f;
       rigidbody.AddForce(transform.position.normalized * repulsiveForce, ForceMode2D.Impulse);
+    } else if (collider.gameObject.tag == "AlienPickup") {
+      collider.gameObject.SendMessage("Pickup", this);
     }
   }
 

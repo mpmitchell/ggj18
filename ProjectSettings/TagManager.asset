@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Planet
   - OrbitDeadly
+  - AlienPickup
+  - EarthPickup
   layers:
   - Default
   - TransparentFX

@@ -16,15 +16,19 @@ public class AlienController : MonoBehaviour {
   public Transform radiowaveSpawn;
   public Transform laserSpawn;
 
-  MeshRenderer[] renderers;
   MeshRenderer renderer;
   int mask;
-  public float rocketTimer = 0f;
-  public float radiowaveTimer = 0f;
-  public float laserTimer = 0f;
+  float rocketTimer = 0f;
+  float radiowaveTimer = 0f;
+  float laserTimer = 0f;
+
+  public Material mainMaterial;
+  public Material transparentMaterial;
+  public float minOpacity;
+  public float fadeSpeed;
+  float firing = 0f;
 
   void Start() {
-    renderers = GetComponentsInChildren<MeshRenderer>();
     renderer = GetComponentInChildren<MeshRenderer>();
     mask = LayerMask.GetMask("Planet", "Towers", "EarthPlayer");
   }
@@ -38,17 +42,21 @@ public class AlienController : MonoBehaviour {
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);
     transform.Rotate(rotate * Vector3.forward);
 
-    if ((horiztontal != 0f || vertical != 0f) && !fire) {
-      renderer.enabled = false;
-      // StartCoroutine(FadeOut());
+    if (firing > 0f) {
+      firing -= Time.deltaTime;
+    }
+
+    if ((horiztontal != 0f || vertical != 0f) && firing <= 0f) {
+      renderer.material = transparentMaterial;
+      Color color = transparentMaterial.color;
+      color.a = color.a - 1f * fadeSpeed * Time.deltaTime;
+      color.a = Mathf.Max(color.a, minOpacity);
+      transparentMaterial.color = color;
     } else {
-      renderer.enabled = true;
-      // foreach (MeshRenderer renderer in renderers) {
-      //   Color color = renderer.material.color;
-      //   color.a = 1f;
-      //   renderer.material.color = color;
-      // }
-      // StopAllCoroutines();
+      Color color = transparentMaterial.color;
+      color.a = 1f;
+      transparentMaterial.color = color;
+      renderer.material = mainMaterial;
     }
 
     if (rocketTimer >= 0f) rocketTimer -= Time.deltaTime;
@@ -67,16 +75,19 @@ public class AlienController : MonoBehaviour {
           rocket.target = hit.point;
         }
         rocketTimer = rocketCooldown;
+        firing = 1f;
       }
       if (radiowaveTimer <= 0f && Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, mask)) {
         Radiowave radiowave = Instantiate(radiowavePrefab, Vector3.zero, radiowaveSpawn.rotation).GetComponent<Radiowave>();
         radiowave.spawn = radiowaveSpawn;
         radiowaveTimer = radiowaveCooldown;
+        firing = radiowaveCooldown;
       }
       if (laserTimer <= 0f && Physics2D.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, mask)) {
         Laser laser = Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation).GetComponent<Laser>();
         laser.spawn = laserSpawn;
         laserTimer = laserCooldown;
+        firing = laserCooldown;
       }
     }
   }
@@ -84,17 +95,6 @@ public class AlienController : MonoBehaviour {
   void OnCollisionEnter2D(Collision2D collision) {
     if (collision.gameObject.tag == "Planet") {
       spawner.DestroyCurrent();
-    }
-  }
-
-  IEnumerator FadeOut() {
-    while (Input.GetAxis("AlienHorizontal") != 0f || Input.GetAxis("AlienVertical") != 0f) {
-      foreach (MeshRenderer renderer in renderers) {
-        Color color = renderer.material.color;
-        color.a = color.a - 0.1f;
-        renderer.material.color = color;
-      }
-      yield return new WaitForSeconds(0.1f);
     }
   }
 }

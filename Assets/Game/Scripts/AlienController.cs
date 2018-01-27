@@ -37,6 +37,12 @@ public class AlienController : MonoBehaviour {
     float rotate = Input.GetAxis("AlienRotation") * rotationalSpeed * Time.deltaTime;
     bool fire = Input.GetButtonDown("AlienFire");
 
+    if (rotate == 0f && (horiztontal != 0f || vertical != 0f)) {
+      Vector3 dir = Vector3.zero - transform.position;
+      float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+      transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 15f, Vector3.forward), 0.001f);
+    }
+
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);
     Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
 
@@ -74,26 +80,27 @@ public class AlienController : MonoBehaviour {
     if (laserTimer >= 0f) laserTimer -= Time.deltaTime;
 
     if (fire) {
-      RaycastHit2D hit;
-      hit = Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, mask);
-      if (rocketTimer <= 0f && hit.collider != null) {
+      float r = rocketSpawn.position.magnitude;
+      float rw = radiowaveSpawn.position.magnitude;
+      float l = laserSpawn.position.magnitude;
+
+      if (rocketTimer <= 0f && r <= rw && r <= l) {
         Rocket rocket = Instantiate(rocketPrefab, rocketSpawn.position, rocketSpawn.rotation).GetComponent<Rocket>();
+        Debug.DrawRay(rocketSpawn.position, rocketSpawn.right * 100f, Color.white, 3f);
         RaycastHit2D aimAssitHit = Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, LayerMask.GetMask("AimAssist"));
         if (aimAssitHit.collider != null) {
           rocket.target = aimAssitHit.transform.parent.position;
         } else {
-          rocket.target = hit.point;
+          rocket.target = null;
         }
         rocketTimer = rocketCooldown;
         firing = 1f;
-      }
-      if (radiowaveTimer <= 0f && Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, mask)) {
+      } else if (radiowaveTimer <= 0f && rw <= r && rw <= l) {
         Radiowave radiowave = Instantiate(radiowavePrefab, Vector3.zero, radiowaveSpawn.rotation).GetComponent<Radiowave>();
         radiowave.spawn = radiowaveSpawn;
         radiowaveTimer = radiowaveCooldown;
         firing = radiowaveCooldown;
-      }
-      if (laserTimer <= 0f && Physics2D.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, mask)) {
+      } else if (laserTimer <= 0f && l <= r && l <= rw) {
         Laser laser = Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation).GetComponent<Laser>();
         laser.spawn = laserSpawn;
         laserTimer = laserCooldown;

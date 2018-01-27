@@ -16,14 +16,14 @@ public class AlienController : MonoBehaviour {
   public Transform radiowaveSpawn;
   public Transform laserSpawn;
 
-  MeshRenderer renderer;
+  MeshRenderer[] renderers;
   int mask;
   public float rocketTimer = 0f;
   public float radiowaveTimer = 0f;
   public float laserTimer = 0f;
 
   void Start() {
-    renderer = GetComponent<MeshRenderer>();
+    renderers = GetComponentsInChildren<MeshRenderer>();
     mask = LayerMask.GetMask("Planet", "Towers", "EarthPlayer");
   }
 
@@ -36,19 +36,32 @@ public class AlienController : MonoBehaviour {
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);
     transform.Rotate(rotate * Vector3.forward);
 
-    // if ((horiztontal != 0f || vertical != 0f) && !fire) {
-    //   StartCoroutine(FadeOut());
-    // } else {
-    //   StopAllCoroutines();
-    // }
+    if (horiztontal != 0f || vertical != 0f) {
+      StartCoroutine(FadeOut());
+    } else {
+      foreach (MeshRenderer renderer in renderers) {
+        Color color = renderer.material.color;
+        color.a = 1f;
+        renderer.material.color = color;
+      }
+      StopAllCoroutines();
+    }
 
     if (rocketTimer >= 0f) rocketTimer -= Time.deltaTime;
     if (radiowaveTimer >= 0f) radiowaveTimer -= Time.deltaTime;
     if (laserTimer >= 0f) laserTimer -= Time.deltaTime;
 
     if (fire) {
-      if (rocketTimer <= 0f && Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, mask)) {
-        Instantiate(rocketPrefab, rocketSpawn.position, rocketSpawn.rotation);
+      RaycastHit2D hit;
+      hit = Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, mask);
+      if (rocketTimer <= 0f && hit.collider != null) {
+        Rocket rocket = Instantiate(rocketPrefab, rocketSpawn.position, rocketSpawn.rotation).GetComponent<Rocket>();
+        RaycastHit2D aimAssitHit = Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, LayerMask.GetMask("AimAssist"));
+        if (aimAssitHit.collider != null) {
+          rocket.target = aimAssitHit.transform.parent.position;
+        } else {
+          rocket.target = hit.point;
+        }
         rocketTimer = rocketCooldown;
       }
       if (radiowaveTimer <= 0f && Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, mask)) {
@@ -71,10 +84,12 @@ public class AlienController : MonoBehaviour {
   }
 
   IEnumerator FadeOut() {
-    Color color = renderer.material.color;
-    while (color.a > 0f) {
-      color.a -= 0.1f;
-      renderer.material.color = color;
+    while (Input.GetAxis("AlienHorizontal") != 0f || Input.GetAxis("AlienVertical") != 0f) {
+      foreach (MeshRenderer renderer in renderers) {
+        Color color = renderer.material.color;
+        color.a = color.a - 0.1f;
+        renderer.material.color = color;
+      }
       yield return new WaitForSeconds(0.1f);
     }
   }

@@ -4,11 +4,14 @@ public class Rocket : MonoBehaviour {
 
   public float speed;
   public float damage;
+  public Vector3 target;
 
   float timer = 0f;
 
   void Update() {
-    transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
+    Vector3 delta = target - transform.position;
+    transform.Translate(delta.normalized * speed * Time.deltaTime, Space.World);
+    // transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
     timer += Time.deltaTime;
     if (timer >= 10f) {
       Destroy(gameObject);

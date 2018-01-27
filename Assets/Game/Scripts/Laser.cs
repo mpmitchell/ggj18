@@ -17,15 +17,14 @@ public class Laser : MonoBehaviour {
 
   void Update() {
     Vector3 position = spawn.transform.position;
+    lineRenderer.SetPosition(0, position);
 
-    RaycastHit2D hit = Physics2D.Raycast(spawn.position, spawn.right, Mathf.Infinity, LayerMask.GetMask("Planet", "Towers", "EarthPlayer"));
+    RaycastHit2D hit = Physics2D.Raycast(spawn.position, spawn.right, Mathf.Infinity, LayerMask.GetMask("Planet", "Towers", "LaserShield"));
 
     if (hit.collider != null) {
-      lineRenderer.enabled = true;
-      lineRenderer.SetPosition(0, position);
       lineRenderer.SetPosition(1, hit.point);
     } else {
-      lineRenderer.enabled = false;
+      lineRenderer.SetPosition(1, spawn.position + spawn.right * 100f);
     }
 
     damageTimer += Time.deltaTime;

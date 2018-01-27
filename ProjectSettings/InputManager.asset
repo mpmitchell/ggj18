@@ -25,9 +25,9 @@ InputManager:
     m_Name: Anti-Radiowave
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 1
+    negativeButton: '[1]'
     positiveButton: 
-    altNegativeButton: 
+    altNegativeButton: 1
     altPositiveButton: 
     gravity: 3
     dead: 0.001
@@ -41,9 +41,9 @@ InputManager:
     m_Name: Anti-Rocket
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 2
+    negativeButton: '[2]'
     positiveButton: 
-    altNegativeButton: 
+    altNegativeButton: 2
     altPositiveButton: 
     gravity: 1000
     dead: 0.001
@@ -57,9 +57,9 @@ InputManager:
     m_Name: Anti-Laser
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 3
+    negativeButton: '[3]'
     positiveButton: 
-    altNegativeButton: 
+    altNegativeButton: 3
     altPositiveButton: 
     gravity: 1000
     dead: 0.001

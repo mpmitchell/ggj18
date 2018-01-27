@@ -28,12 +28,15 @@ public class EarthController : MonoBehaviour {
     if (Input.GetButtonDown("Anti-Radiowave")) {
       shield = ShieldType.Radiowave;
       renderer.material = antiRadiowaveMaterial;
+      gameObject.layer = LayerMask.NameToLayer("RadiowaveShield");
     } else if (Input.GetButtonDown("Anti-Rocket")) {
       shield = ShieldType.Rocket;
       renderer.material = antiRocketMaterial;
+      gameObject.layer = LayerMask.NameToLayer("RocketShield");
     } else if (Input.GetButtonDown("Anti-Laser")) {
       shield = ShieldType.Laser;
       renderer.material = antiLaserMaterial;
+      gameObject.layer = LayerMask.NameToLayer("LaserShield");
     }
   }
 

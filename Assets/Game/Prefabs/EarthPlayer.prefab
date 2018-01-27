@@ -24,8 +24,25 @@ GameObject:
   - component: {fileID: 114196516771519092}
   - component: {fileID: 61410216760834816}
   - component: {fileID: 50324475448612222}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: EarthPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1948326259081252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4723148395764482}
+  - component: {fileID: 33241436929350532}
+  - component: {fileID: 23139905397581146}
+  m_Layer: 0
+  m_Name: Satellite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,19 +55,67 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851792424625772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
-  m_LocalScale: {x: 2, y: 0.2, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: 0, y: 5.91, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_Children:
+  - {fileID: 4723148395764482}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4723148395764482
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948326259081252}
+  m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: 0.6532815, w: -0.27059805}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1.21285, y: 1.21285, z: 1.4620149}
+  m_Children: []
+  m_Father: {fileID: 4348712609007220}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 180, z: 45.000004}
+--- !u!23 &23139905397581146
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948326259081252}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 01a03191b72bb3245bd023c329603cb1, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23865221212535884
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851792424625772}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -78,6 +143,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!33 &33241436929350532
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948326259081252}
+  m_Mesh: {fileID: 4300000, guid: 27f2b2fe5ef39c844975851ece89aed0, type: 3}
 --- !u!33 &33863258486161844
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -104,7 +176,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &61410216760834816
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -117,7 +189,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0}
+  m_Offset: {x: -0.060943127, y: 0.61375356}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -128,7 +200,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2}
+  m_Size: {x: 7.5965576, y: 3.2275062}
   m_EdgeRadius: 0
 --- !u!114 &114196516771519092
 MonoBehaviour:
@@ -141,8 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d11fac2a13f43a5bd91401ee263736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 90
-  antiRadiowaveMaterial: {fileID: 2100000, guid: 368e0176340544a12b62f132adf5dd9b,
+  speed: 200
+  satellite: {fileID: 1948326259081252}
+  antiRadiowaveMaterial: {fileID: 2100000, guid: 01a03191b72bb3245bd023c329603cb1,
     type: 2}
-  antiRocketMaterial: {fileID: 2100000, guid: 7e664af5571fe4feebde02772e59f05d, type: 2}
-  antiLaserMaterial: {fileID: 2100000, guid: 5d689056c5c534a7d8dc7b8582736251, type: 2}
+  antiRocketMaterial: {fileID: 2100000, guid: 95cedc0d76e709f40ad21f43bccb9cfe, type: 2}
+  antiLaserMaterial: {fileID: 2100000, guid: 52b615f52b4ab434fa9a044ff2236371, type: 2}

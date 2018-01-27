@@ -38,6 +38,16 @@ public class AlienController : MonoBehaviour {
     bool fire = Input.GetButtonDown("AlienFire");
 
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);
+    Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
+
+    if (position.x >= 0.99f || position.x <= 0.01f ||
+      position.y >= 0.99f || position.y <= 0.01f) {
+      firing = 1f;
+    }
+
+    position.x = Mathf.Clamp01(position.x);
+    position.y = Mathf.Clamp01(position.y);
+    transform.position = Camera.main.ViewportToWorldPoint(position);
     transform.Rotate(rotate * Vector3.forward);
 
     if (firing > 0f) {
@@ -96,5 +106,9 @@ public class AlienController : MonoBehaviour {
     if (collision.gameObject.tag == "Planet") {
       spawner.DestroyCurrent();
     }
+  }
+
+  void OnTriggerEnter2D(Collider2D collider) {
+    firing = 1f;
   }
 }

@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 1776199545995084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children:
   - {fileID: 4666938134827860}
   - {fileID: 4602607814802690}
@@ -290,7 +290,5 @@ MonoBehaviour:
   rocketSpawn: {fileID: 4602607814802690}
   radiowaveSpawn: {fileID: 4666938134827860}
   laserSpawn: {fileID: 4909653285307602}
-  mainMaterial: {fileID: 2100000, guid: d91c10fe832804f5f97d9b43d09fd076, type: 2}
-  transparentMaterial: {fileID: 2100000, guid: 47ca252c4a8924cdca6e0a7ed61b3d74, type: 2}
   minOpacity: 0
-  fadeSpeed: 1
+  fadeSpeed: 2

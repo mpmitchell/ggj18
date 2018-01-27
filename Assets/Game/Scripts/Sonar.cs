@@ -20,7 +20,7 @@ public class Sonar : MonoBehaviour {
     RaycastHit2D hit = Physics2D.BoxCast(spawn.position, new Vector2(4f, 2f), transform.rotation.z, transform.InverseTransformDirection(-spawn.forward), Mathf.Infinity, LayerMask.GetMask("AlienPlayer"));
 
     if (hit.collider != null) {
-      hit.collider.SendMessage("SonarHit", SendMessageOptions.DontRequireReceiver);
+      hit.collider.SendMessage("SonarHit", spawn.transform.position, SendMessageOptions.DontRequireReceiver);
     }
 
     timer += Time.deltaTime;

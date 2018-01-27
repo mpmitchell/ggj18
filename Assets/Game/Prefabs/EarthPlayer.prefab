@@ -251,4 +251,4 @@ MonoBehaviour:
   sonarPrefab: {fileID: 1912217568216036, guid: a7168063867cd47f280a8e90bf8e018c,
     type: 2}
   sonarSpawn: {fileID: 4308965804332468}
-  sonarCooldown: 10
+  sonarCooldown: 5

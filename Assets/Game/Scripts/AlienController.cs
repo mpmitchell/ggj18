@@ -40,7 +40,7 @@ public class AlienController : MonoBehaviour {
     if (rotate == 0f && (horiztontal != 0f || vertical != 0f)) {
       Vector3 dir = Vector3.zero - transform.position;
       float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-      transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 15f, Vector3.forward), 0.001f);
+      transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 15f, Vector3.forward), 0.1f);
     }
 
     transform.Translate(new Vector3(horiztontal, vertical, 0f), Space.World);

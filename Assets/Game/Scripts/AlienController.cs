@@ -22,8 +22,6 @@ public class AlienController : MonoBehaviour {
   float radiowaveTimer = 0f;
   float laserTimer = 0f;
 
-  public Material mainMaterial;
-  public Material transparentMaterial;
   public float minOpacity;
   public float fadeSpeed;
   float firing = 0f;
@@ -47,16 +45,18 @@ public class AlienController : MonoBehaviour {
     }
 
     if ((horiztontal != 0f || vertical != 0f) && firing <= 0f) {
-      renderer.material = transparentMaterial;
-      Color color = transparentMaterial.color;
+      Color color = renderer.material.color;
+      if (color.a <= 0f) {
+        renderer.enabled = false;
+      }
       color.a = color.a - 1f * fadeSpeed * Time.deltaTime;
       color.a = Mathf.Max(color.a, minOpacity);
-      transparentMaterial.color = color;
+      renderer.material.color = color;
     } else {
-      Color color = transparentMaterial.color;
+      renderer.enabled = true;
+      Color color = renderer.material.color;
       color.a = 1f;
-      transparentMaterial.color = color;
-      renderer.material = mainMaterial;
+      renderer.material.color = color;
     }
 
     if (rocketTimer >= 0f) rocketTimer -= Time.deltaTime;

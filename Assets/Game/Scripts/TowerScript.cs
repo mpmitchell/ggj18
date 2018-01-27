@@ -16,7 +16,11 @@ public class TowerScript : MonoBehaviour {
 	
 	
 	void Update ()
-    {        
+    {   
+        if (health <=0)
+        {
+            Destroy(this.gameObject);
+        }
         if (health >= 1)
         {
             transmissionTimer += Time.deltaTime;

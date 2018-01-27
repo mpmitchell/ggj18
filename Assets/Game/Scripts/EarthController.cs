@@ -3,6 +3,7 @@
 public class EarthController : MonoBehaviour {
 
   public float speed;
+  public GameObject satellite;
   public Material antiRadiowaveMaterial;
   public Material antiRocketMaterial;
   public Material antiLaserMaterial;
@@ -15,7 +16,7 @@ public class EarthController : MonoBehaviour {
   }
 
   void Start() {
-    renderer = GetComponent<MeshRenderer>();
+    renderer = satellite.GetComponent<MeshRenderer>();
   }
 
   void Update() {

@@ -25,6 +25,8 @@ public class TowerScript : MonoBehaviour {
 
     new public MeshRenderer renderer;
 
+    bool upgradedHit = false;
+
     public static TowerScript[] GetTowers() {
         TowerScript[] towers = new TowerScript[_towers.Count];
         _towers.CopyTo(towers, 0);
@@ -51,11 +53,12 @@ public class TowerScript : MonoBehaviour {
         if (transmissionOff == true)
         {
             transmissionOffTimer--;
-            earthControllerScript.speed = 100;
+            earthControllerScript.speed = upgradedHit ? 75 : 100;
             if (transmissionOffTimer <= 0)
             {
                 transmissionOffTimer = 240;
                 transmissionOff = false;
+                upgradedHit = false;
             }
         }
         else
@@ -105,6 +108,15 @@ public class TowerScript : MonoBehaviour {
         script1.transmissionOff = true;
         script2.transmissionOff = true;
         script3.transmissionOff = true;
+    }
+
+    public void UpgradedRadiowaveHit() {
+        RadiowaveHit();
+        upgradedHit = true;
+    }
+
+    public void Heal(int health) {
+        this.health = Mathf.Min(100, this.health + health);
     }
 
     void OnDestroy() {

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class AlienController : MonoBehaviour {
 
+  public static AlienController alien;
+
 	public float speed;
   public float rotationalSpeed;
   public float rocketCooldown;
@@ -17,11 +19,11 @@ public class AlienController : MonoBehaviour {
   public Transform radiowaveSpawn;
   public Transform laserSpawn;
 
-    public Image rocketCD;
-    public Image laserCD;
-    public Image radioCD;
+  public Image rocketCD;
+  public Image laserCD;
+  public Image radioCD;
 
-    new Rigidbody2D rigidbody;
+  new Rigidbody2D rigidbody;
   public float repulsiveForce;
 
   new MeshRenderer renderer;
@@ -40,16 +42,31 @@ public class AlienController : MonoBehaviour {
   float fullSpeed;
   float speedDownTimer = 0f;
 
+  bool inverted = false;
+  public float invertedTime;
+  float invertedTimer = 0f;
+
+  bool upgradedLaser = false;
+  public float upgradedLaserTime;
+  float upgradedLaserTimer = 0f;
+  bool upgradedRadiowave = false;
+  public float upgradedRadiowaveTime;
+  float upgradedRadiowaveTimer = 0f;
+  bool upgradedRocket = false;
+  public float upgradedRocketTime;
+  float upgradedRocketTimer = 0f;
+
   void Start() {
     renderer = GetComponentInChildren<MeshRenderer>();
     rigidbody = GetComponent<Rigidbody2D>();
     fullSpeed = speed;
+    alien = this;
   }
 
   void Update() {
-    float horiztontal = -Input.GetAxis("AlienHorizontal") * speed * Time.deltaTime;
-    float vertical = -Input.GetAxis("AlienVertical") * speed * Time.deltaTime;
-    float rotate = Input.GetAxis("AlienRotation") * rotationalSpeed * Time.deltaTime;
+    float horiztontal = (inverted ? -1f : 1f) * -Input.GetAxis("AlienHorizontal") * speed * Time.deltaTime;
+    float vertical = (inverted ? -1f : 1f) * -Input.GetAxis("AlienVertical") * speed * Time.deltaTime;
+    float rotate = (inverted ? -1f : 1f) * Input.GetAxis("AlienRotation") * rotationalSpeed * Time.deltaTime;
     bool fire = Input.GetButtonDown("AlienFire");
 
     Vector3 dir = Vector3.zero - transform.position;
@@ -123,7 +140,7 @@ public class AlienController : MonoBehaviour {
 
       if (rocketTimer <= 0f && r <= rw && r <= l) {
         Rocket rocket = Instantiate(rocketPrefab, rocketSpawn.position, rocketSpawn.rotation).GetComponent<Rocket>();
-        Debug.DrawRay(rocketSpawn.position, rocketSpawn.right * 100f, Color.white, 3f);
+        if (upgradedRocket) { rocket.Upgrade(); }
         RaycastHit2D aimAssitHit = Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, LayerMask.GetMask("AimAssist"));
         if (aimAssitHit.collider != null) {
           rocket.target = aimAssitHit.transform.parent.position;
@@ -133,12 +150,20 @@ public class AlienController : MonoBehaviour {
         rocketTimer = rocketCooldown;
         firing = 1f;
       } else if (radiowaveTimer <= 0f && rw <= r && rw <= l) {
-        Radiowave radiowave = Instantiate(radiowavePrefab, Vector3.zero, radiowaveSpawn.rotation).GetComponent<Radiowave>();
-        radiowave.spawn = radiowaveSpawn;
+        Radiowave radiowave = Instantiate(radiowavePrefab, radiowaveSpawn.position, radiowaveSpawn.rotation).GetComponent<Radiowave>();
+        if (upgradedRadiowave) { radiowave.Upgrade(); }
+        // radiowave.spawn = radiowaveSpawn;
+        RaycastHit2D aimAssitHit = Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, LayerMask.GetMask("AimAssist"));
+        if (aimAssitHit.collider != null) {
+          radiowave.target = aimAssitHit.transform.parent.position;
+        } else {
+          radiowave.target = null;
+        }
         radiowaveTimer = radiowaveCooldown;
         firing = radiowaveCooldown;
       } else if (laserTimer <= 0f && l <= r && l <= rw) {
         Laser laser = Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation).GetComponent<Laser>();
+        if (upgradedLaser) { laser.Upgrade(); }
         laser.spawn = laserSpawn;
         laserTimer = laserCooldown;
         firing = laserCooldown;
@@ -147,10 +172,38 @@ public class AlienController : MonoBehaviour {
 
     if (speedDownTimer > 0f) {
       speedDownTimer -= Time.deltaTime;
-      float magnitude = (Random.value <= 0.5f ? -1f : 1f) * Random.Range(90f, 180f);
+      float magnitude = (Random.value <= 0.5f ? -1f : 1f) * Random.Range(30f, 90f);
       pivot.Rotate(magnitude * Vector3.forward, Space.World);
       if (speedDownTimer <= 0f) {
         speed = fullSpeed;
+      }
+    }
+
+    if (invertedTimer > 0f) {
+      invertedTimer -= Time.deltaTime;
+      if (invertedTimer <= 0f) {
+        inverted = false;
+      }
+    }
+
+    if (upgradedLaserTimer > 0f) {
+      upgradedLaserTimer -= Time.deltaTime;
+      if (upgradedLaserTimer <= 0f) {
+        upgradedLaser = false;
+      }
+    }
+
+    if (upgradedRadiowaveTimer > 0f) {
+      upgradedRadiowaveTimer -= Time.deltaTime;
+      if (upgradedRadiowaveTimer <= 0f) {
+        upgradedRadiowave = false;
+      }
+    }
+
+    if (upgradedRocketTimer > 0f) {
+      upgradedRocketTimer -= Time.deltaTime;
+      if (upgradedRocketTimer <= 0f) {
+        upgradedRocket = false;
       }
     }
   }
@@ -169,7 +222,35 @@ public class AlienController : MonoBehaviour {
       speed = speed * speedDownMultiplier;
       speedDownTimer = speedDownTime;
 
-      rigidbody.AddForce((transform.position - origin).normalized * 30f, ForceMode2D.Impulse);
+      rigidbody.AddForce((transform.position - origin).normalized * 15f, ForceMode2D.Impulse);
+    }
+  }
+
+  public void Invert() {
+    if (invertedTimer <= 0f) {
+      invertedTimer = invertedTime;
+      inverted = true;
+    }
+  }
+
+  public void UpgradeLaser() {
+    if (upgradedLaserTimer <= 0f) {
+      upgradedLaserTimer = upgradedLaserTime;
+      upgradedLaser = true;
+    }
+  }
+
+  public void UpgradeRadiowave() {
+    if (upgradedRadiowaveTimer <= 0f) {
+      upgradedRadiowaveTimer = upgradedRadiowaveTime;
+      upgradedRadiowave = true;
+    }
+  }
+
+  public void UpgradeRocket() {
+    if (upgradedRocketTimer <= 0f) {
+      upgradedRocketTimer = upgradedRocketTime;
+      upgradedRocket = true;
     }
   }
 }

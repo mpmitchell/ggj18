@@ -1,16 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UpgradeRadiowave : MonoBehaviour {
+public class UpgradeRadiowave : AlienPickup {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+  void Pickup(AlienController player) {
+    player.UpgradeRadiowave();
+    Destroy(gameObject);
+  }
 }

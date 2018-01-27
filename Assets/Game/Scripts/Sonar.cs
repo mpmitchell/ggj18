@@ -8,6 +8,8 @@ public class Sonar : MonoBehaviour {
   LineRenderer lineRenderer;
   float timer = 0f;
 
+  bool hit = false;
+
   void Start() {
     lineRenderer = GetComponent<LineRenderer>();
   }
@@ -25,8 +27,9 @@ public class Sonar : MonoBehaviour {
 
     RaycastHit2D boxhit = Physics2D.BoxCast(spawn.position, new Vector2(4f, 1f), transform.rotation.z, spawn.up, Mathf.Infinity, LayerMask.GetMask("AlienPlayer"));
 
-    if (boxhit.collider != null) {
+    if (!hit && boxhit.collider != null) {
       boxhit.collider.SendMessage("SonarHit", spawn.transform.position, SendMessageOptions.DontRequireReceiver);
+      hit = true;
     }
     // if (hit.collider != null) {
     //   hit.collider.SendMessage("SonarHit", spawn.transform.position, SendMessageOptions.DontRequireReceiver);

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4513356541811676}
   - component: {fileID: 33384642943909396}
   - component: {fileID: 23512413910258842}
-  - component: {fileID: 114404256531919228}
   - component: {fileID: 61096073202484172}
+  - component: {fileID: 114600519489330760}
   m_Layer: 20
   m_Name: UpgradeLaser
   m_TagString: AlienPickup
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114404256531919228
+--- !u!114 &114600519489330760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,6 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1047956006346622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf44b32a3afee44ad81589d474c4eb66, type: 3}
+  m_Script: {fileID: 11500000, guid: 1393e4d8acb7f4d068585632729efc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class UpgradeLaser : AlienPickup {
+public class ScrambleSatellite : AlienPickup {
 
   void Pickup(AlienController player) {
-    player.UpgradeLaser();
+    EarthController.earthPlayer.Invert();
     Destroy(gameObject);
   }
 }

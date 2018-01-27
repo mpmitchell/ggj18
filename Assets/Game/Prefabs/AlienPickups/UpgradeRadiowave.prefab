@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4540946214017808}
   - component: {fileID: 33045438433527804}
   - component: {fileID: 23163285037128684}
-  - component: {fileID: 114669122560782598}
   - component: {fileID: 61479737075551042}
+  - component: {fileID: 114559607047110944}
   m_Layer: 20
   m_Name: UpgradeRadiowave
   m_TagString: AlienPickup
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114669122560782598
+--- !u!114 &114559607047110944
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,6 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1693719556946016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf44b32a3afee44ad81589d474c4eb66, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6aa7229c25a492b84b1291fbc12eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

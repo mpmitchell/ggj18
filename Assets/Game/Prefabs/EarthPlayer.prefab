@@ -252,3 +252,6 @@ MonoBehaviour:
     type: 2}
   sonarSpawn: {fileID: 4308965804332468}
   sonarCooldown: 5
+  speedIncreaseTime: 3
+  scaleTime: 3
+  invertedTime: 5

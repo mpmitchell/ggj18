@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4188716804918716}
   - component: {fileID: 33429933440357552}
   - component: {fileID: 23415558114101792}
-  - component: {fileID: 114265791638581480}
   - component: {fileID: 61145005903853410}
+  - component: {fileID: 114590844416026578}
   m_Layer: 20
   m_Name: UpgradeSpeed
   m_TagString: EarthPickup
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114265791638581480
+--- !u!114 &114590844416026578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1817325402516866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e628e9536d1b46aea70612a17be823a, type: 3}
+  m_Script: {fileID: 11500000, guid: 68e38e4c3bcf9498395399cc88253e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedMultiplier: 2

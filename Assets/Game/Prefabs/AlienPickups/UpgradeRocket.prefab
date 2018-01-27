@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4741388553529846}
   - component: {fileID: 33736373246842156}
   - component: {fileID: 23404074147897072}
-  - component: {fileID: 114143672354846018}
   - component: {fileID: 61507281955394112}
+  - component: {fileID: 114087978714892394}
   m_Layer: 20
   m_Name: UpgradeRocket
   m_TagString: AlienPickup
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114143672354846018
+--- !u!114 &114087978714892394
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,6 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019371755292540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf44b32a3afee44ad81589d474c4eb66, type: 3}
+  m_Script: {fileID: 11500000, guid: 34dc1480ea90d4170b8b11ffb2bdc37e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

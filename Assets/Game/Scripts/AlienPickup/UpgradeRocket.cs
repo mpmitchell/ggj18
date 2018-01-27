@@ -1,16 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UpgradeRocket : MonoBehaviour {
+public class UpgradeRocket : AlienPickup {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+  void Pickup(AlienController player) {
+    player.UpgradeRocket();
+    Destroy(gameObject);
+  }
 }

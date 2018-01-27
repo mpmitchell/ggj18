@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4613233203318730}
   - component: {fileID: 33983862457748682}
   - component: {fileID: 23603839386540414}
-  - component: {fileID: 114043050467170098}
   - component: {fileID: 61859308030016364}
+  - component: {fileID: 114772060411850414}
   m_Layer: 20
   m_Name: Repair
   m_TagString: EarthPickup
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114043050467170098
+--- !u!114 &114772060411850414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1650010361185530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e628e9536d1b46aea70612a17be823a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ea6c379b12fb4da0ab0bfefea77566a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healAmount: 30

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4382855810085620}
   - component: {fileID: 33046449366898126}
   - component: {fileID: 23560830518924688}
-  - component: {fileID: 114130175771286886}
   - component: {fileID: 61125540142455360}
+  - component: {fileID: 114552413069760998}
   m_Layer: 20
   m_Name: Scramble
   m_TagString: AlienPickup
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114130175771286886
+--- !u!114 &114552413069760998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,6 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1841107362887196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf44b32a3afee44ad81589d474c4eb66, type: 3}
+  m_Script: {fileID: 11500000, guid: 2638ac3dbeb7d42c893bd54bbbbcc0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

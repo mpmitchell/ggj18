@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4324926919263772}
   - component: {fileID: 33050160936305892}
   - component: {fileID: 23780842928984128}
-  - component: {fileID: 114114311880418658}
   - component: {fileID: 61071333783506218}
+  - component: {fileID: 114356382947323308}
   m_Layer: 20
   m_Name: Scamble
   m_TagString: EarthPickup
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114114311880418658
+--- !u!114 &114356382947323308
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,6 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1703687650042274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e628e9536d1b46aea70612a17be823a, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c615267ce194fe591a2d51e1be7564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

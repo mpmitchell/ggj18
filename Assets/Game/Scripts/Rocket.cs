@@ -8,12 +8,20 @@ public class Rocket : MonoBehaviour {
 
   float timer = 0f;
 
+  bool upgraded = false;
+  public float highSpeed;
+  public float highDamage;
+
+  public void Upgrade() {
+    upgraded = true;
+  }
+
   void Update() {
     if (target.HasValue) {
       Vector3 delta = target.Value - transform.position;
-      transform.Translate(delta.normalized * speed * Time.deltaTime, Space.World);
+      transform.Translate(delta.normalized * (upgraded ? highSpeed : speed) * Time.deltaTime, Space.World);
     } else {
-      transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
+      transform.Translate(transform.right * (upgraded ? highSpeed : speed) * Time.deltaTime, Space.World);
     }
     timer += Time.deltaTime;
     if (timer >= 10f) {
@@ -22,7 +30,7 @@ public class Rocket : MonoBehaviour {
   }
 
   void OnCollisionEnter2D(Collision2D collision) {
-    collision.gameObject.SendMessage("RocketHit", damage, SendMessageOptions.DontRequireReceiver);
+    collision.gameObject.SendMessage("RocketHit", upgraded ? highDamage : damage, SendMessageOptions.DontRequireReceiver);
     Destroy(gameObject);
   }
 }

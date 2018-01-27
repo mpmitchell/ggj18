@@ -5,6 +5,9 @@ public class AlienController : MonoBehaviour {
 
 	public float speed;
   public float rotationalSpeed;
+  public float rocketCooldown;
+  public float radiowaveCooldown;
+  public float laserCooldown;
   public AlienSpawner spawner;
   public GameObject rocketPrefab;
   public GameObject radiowavePrefab;
@@ -15,6 +18,9 @@ public class AlienController : MonoBehaviour {
 
   Renderer renderer;
   int mask;
+  public float rocketTimer = 0f;
+  public float radiowaveTimer = 0f;
+  public float laserTimer = 0f;
 
   void Start() {
     renderer = GetComponent<Renderer>();
@@ -36,15 +42,24 @@ public class AlienController : MonoBehaviour {
     //   StopAllCoroutines();
     // }
 
+    if (rocketTimer >= 0f) rocketTimer -= Time.deltaTime;
+    if (radiowaveTimer >= 0f) radiowaveTimer -= Time.deltaTime;
+    if (laserTimer >= 0f) laserTimer -= Time.deltaTime;
+
     if (fire) {
-      if (Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, mask)) {
+      if (rocketTimer <= 0f && Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, mask)) {
         Instantiate(rocketPrefab, rocketSpawn.position, rocketSpawn.rotation);
-      } else if (Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, mask)) {
+        rocketTimer = rocketCooldown;
+      }
+      if (radiowaveTimer <= 0f && Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, mask)) {
         Radiowave radiowave = Instantiate(radiowavePrefab, Vector3.zero, radiowaveSpawn.rotation).GetComponent<Radiowave>();
         radiowave.spawn = radiowaveSpawn;
-      } else if (Physics2D.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, mask)) {
+        radiowaveTimer = radiowaveCooldown;
+      }
+      if (laserTimer <= 0f && Physics2D.Raycast(laserSpawn.position, laserSpawn.right, Mathf.Infinity, mask)) {
         Laser laser = Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation).GetComponent<Laser>();
         laser.spawn = laserSpawn;
+        laserTimer = laserCooldown;
       }
     }
   }

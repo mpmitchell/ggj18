@@ -522,6 +522,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   rotationalSpeed: 360
+  rocketCooldown: 2
+  radiowaveCooldown: 5
+  laserCooldown: 4
   spawner: {fileID: 0}
   rocketPrefab: {fileID: 1607715021003492, guid: ac298930a248a4c0fa9bc70172ce24ce,
     type: 2}
@@ -532,3 +535,6 @@ MonoBehaviour:
   rocketSpawn: {fileID: 4602607814802690}
   radiowaveSpawn: {fileID: 4666938134827860}
   laserSpawn: {fileID: 4909653285307602}
+  rocketTimer: 0
+  radiowaveTimer: 0
+  laserTimer: 0

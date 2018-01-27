@@ -290,6 +290,7 @@ MonoBehaviour:
   rocketSpawn: {fileID: 4602607814802690}
   radiowaveSpawn: {fileID: 4666938134827860}
   laserSpawn: {fileID: 4909653285307602}
-  rocketTimer: 0
-  radiowaveTimer: 0
-  laserTimer: 0
+  mainMaterial: {fileID: 2100000, guid: d91c10fe832804f5f97d9b43d09fd076, type: 2}
+  transparentMaterial: {fileID: 2100000, guid: 47ca252c4a8924cdca6e0a7ed61b3d74, type: 2}
+  minOpacity: 0
+  fadeSpeed: 1

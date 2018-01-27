@@ -1381,23 +1381,6 @@ Prefab:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1818946870}
-    - target: {fileID: 114363030882702522, guid: 95cebc876cdcc4dd4b9530d7f009ba21,
-        type: 2}
-      propertyPath: rotationalSpeed
-      value: -360
-      objectReference: {fileID: 0}
-    - target: {fileID: 4246539320038846, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4246539320038846, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4246539320038846, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
   m_IsPrefabParent: 0

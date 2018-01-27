@@ -16,6 +16,9 @@ public class AlienController : MonoBehaviour {
   public Transform radiowaveSpawn;
   public Transform laserSpawn;
 
+  new Rigidbody2D rigidbody;
+  public float repulsiveForce;
+
   new MeshRenderer renderer;
   float rocketTimer = 0f;
   float radiowaveTimer = 0f;
@@ -29,6 +32,7 @@ public class AlienController : MonoBehaviour {
 
   void Start() {
     renderer = GetComponentInChildren<MeshRenderer>();
+    rigidbody = GetComponent<Rigidbody2D>();
   }
 
   void Update() {
@@ -109,15 +113,14 @@ public class AlienController : MonoBehaviour {
 
   void OnCollisionEnter2D(Collision2D collision) {
     if (collision.gameObject.tag == "Planet") {
-      spawner.DestroyCurrent();
+      // spawner.DestroyCurrent();
     }
   }
 
   void OnTriggerEnter2D(Collider2D collider) {
     firing = 1f;
-    if (collider.gameObject.tag == "OrbitDeadly")
-    {
-      spawner.DestroyCurrent();
+    if (collider.gameObject.tag == "OrbitDeadly") {
+      rigidbody.AddForce(transform.position.normalized * repulsiveForce, ForceMode2D.Impulse);
     }
   }
 }

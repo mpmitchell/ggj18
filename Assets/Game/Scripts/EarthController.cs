@@ -8,7 +8,7 @@ public class EarthController : MonoBehaviour {
   public Material antiRocketMaterial;
   public Material antiLaserMaterial;
 
-  MeshRenderer renderer;
+    MeshRenderer renderer;
   ShieldType shield = ShieldType.Rocket;
 
   enum ShieldType {
@@ -17,9 +17,9 @@ public class EarthController : MonoBehaviour {
 
   void Start() {
     renderer = satellite.GetComponent<MeshRenderer>();
-  }
+    }
 
-  void Update() {
+  void Update() {    
     transform.RotateAround(
       Vector3.zero,
       Vector3.forward,

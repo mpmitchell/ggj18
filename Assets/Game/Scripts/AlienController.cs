@@ -117,5 +117,9 @@ public class AlienController : MonoBehaviour {
 
   void OnTriggerEnter2D(Collider2D collider) {
     firing = 1f;
+    if (collider.gameObject.tag == "OrbitDeadly")
+    {
+      spawner.DestroyCurrent();
+    }
   }
 }

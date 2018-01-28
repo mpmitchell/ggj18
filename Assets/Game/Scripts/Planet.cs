@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Planet : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class Planet : MonoBehaviour {
     {
         if (health <= 0)
         {
+            EndScreen.sos = false;
             Instantiate(explosion, transform.position, transform.rotation);
             towerCounterScript.remainingTower = 0;
             Destroy(tower.gameObject);
@@ -30,6 +32,7 @@ public class Planet : MonoBehaviour {
             Destroy(tower3.gameObject);
             Destroy(tower4.gameObject);
             Destroy(this.gameObject);
+            SceneManager.LoadScene(3);
         }
 
         renderer.material.color = Color.Lerp(Color.red, Color.white, (float)health / 600f);

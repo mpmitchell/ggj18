@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TowerScript : MonoBehaviour {
 
@@ -97,6 +98,8 @@ public class TowerScript : MonoBehaviour {
         if (slider.value == 100)
         {
             Debug.Log("DEFENDING PLAYER WINS!");
+            EndScreen.sos = true;
+            SceneManager.LoadScene(3);
         }
 
         renderer.material.color = Color.Lerp(Color.red, Color.white, (float)health / 100f);
@@ -135,5 +138,10 @@ public class TowerScript : MonoBehaviour {
 
     void OnDestroy() {
         _towers.Remove(this);
+
+        if (_towers.Count == 0) {
+            EndScreen.sos = false;
+            SceneManager.LoadScene(3);
+        }
     }
 }

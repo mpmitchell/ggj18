@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TowerScript : MonoBehaviour {
 
+    static LinkedList<TowerScript> _towers = new LinkedList<TowerScript>();
+
     public int health;
     public Slider slider;
     public float transmissionTimer;
@@ -22,6 +24,16 @@ public class TowerScript : MonoBehaviour {
     public int transmissionOffTimer;
 
     new public MeshRenderer renderer;
+
+    public static TowerScript[] GetTowers() {
+        TowerScript[] towers = new TowerScript[_towers.Count];
+        _towers.CopyTo(towers, 0);
+        return towers;
+    }
+
+    void Awake() {
+        _towers.AddLast(this);
+    }
 
     void Start ()
     {
@@ -95,5 +107,7 @@ public class TowerScript : MonoBehaviour {
         script3.transmissionOff = true;
     }
 
-
+    void OnDestroy() {
+        _towers.Remove(this);
+    }
 }

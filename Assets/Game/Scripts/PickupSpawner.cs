@@ -2,6 +2,9 @@
 
 public class PickupSpawner : MonoBehaviour {
 
+  public static int earthPickupCount = 0;
+  public static int alienPickupCount = 0;
+
   public Transform[] earthPickupPrefabs;
   public Transform[] alienPickupPrefabs;
 
@@ -25,13 +28,15 @@ public class PickupSpawner : MonoBehaviour {
   void Update() {
     if (timer <= 0f) {
       if (Random.value >= (1f - chance)) {
-        if (EarthPickup.count < maxNumberOfEarthPickups) {
+        if (earthPickupCount < maxNumberOfEarthPickups) {
           Transform pickup = Instantiate(earthPickupPrefabs[Random.Range(0, earthPickupPrefabs.Length)]);
+          earthPickupCount++;
           pickup.position = Random.insideUnitCircle.normalized * earthCircleRadius;
         }
 
-        if (AlienPickup.count < maxNumberOfAlienPickups) {
+        if (alienPickupCount < maxNumberOfAlienPickups) {
           Transform pickup = Instantiate(alienPickupPrefabs[Random.Range(0, alienPickupPrefabs.Length)]);
+          alienPickupCount++;
 
           Vector3 minBounds = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, -30f));
           Vector3 maxBounds = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, -30f));

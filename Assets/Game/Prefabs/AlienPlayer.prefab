@@ -77,21 +77,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1785446798197170
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4852288007161656}
-  m_Layer: 0
-  m_Name: Missing Prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1851090010681210
 GameObject:
   m_ObjectHideFlags: 1
@@ -188,8 +173,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.24560346, w: 0.9693704}
   m_LocalPosition: {x: 1.4937997, y: -0.89739996, z: 0.5872069}
   m_LocalScale: {x: 2.4499996, y: 1.2250001, z: 1.4}
-  m_Children:
-  - {fileID: 4852288007161656}
+  m_Children: []
   m_Father: {fileID: 4414448366085692}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.435}
@@ -206,19 +190,6 @@ Transform:
   m_Father: {fileID: 4414448366085692}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
---- !u!4 &4852288007161656
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785446798197170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4756593005576022}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23854308952318600
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -278,7 +249,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61504319566977778
 BoxCollider2D:
@@ -303,7 +274,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!95 &95645249238890160
 Animator:
@@ -339,7 +310,8 @@ MonoBehaviour:
   radiowaveCooldown: 15
   laserCooldown: 4
   spawner: {fileID: 0}
-  rocketPrefab: {fileID: 1864131796457552}
+  rocketPrefab: {fileID: 1607715021003492, guid: ac298930a248a4c0fa9bc70172ce24ce,
+    type: 2}
   radiowavePrefab: {fileID: 1024815614859420, guid: 60c74e3544b234acabd63a253f448f75,
     type: 2}
   laserPrefab: {fileID: 1400627405678390, guid: d49b0c92dae884ece8a2682798be2207,

@@ -179,7 +179,7 @@ public class AlienController : MonoBehaviour {
 
     if (speedDownTimer > 0f) {
       speedDownTimer -= Time.deltaTime;
-      float magnitude = (Random.value <= 0.5f ? -1f : 1f) * Random.Range(30f, 90f);
+      float magnitude =  Random.Range(10f, 20f);
       pivot.Rotate(magnitude * Vector3.forward, Space.World);
       if (speedDownTimer <= 0f) {
         speed = fullSpeed;

@@ -54,7 +54,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 1649946182863460, guid: 812fc2a241e514435a4d55c15733d268, type: 2}
   - {fileID: 1808089240445662, guid: 51bb4951f068e47e78756b51a5d7ed21, type: 2}
-  timeBetweenTicks: 1
-  baseChance: 0.05
-  maxChance: 0.1
+  timeBetweenTicks: 0.5
+  baseChance: 0.01
+  maxChance: 0.3
   speed: 1

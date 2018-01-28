@@ -87,7 +87,7 @@ public class TowerScript : MonoBehaviour {
         if (health >= 1 && transmissionOff == false)
         {
             transmissionTimer += Time.deltaTime;
-            if (transmissionTimer >= 5f)
+            if (transmissionTimer >= 4f)
             {
                 slider.value++;
                 transmissionTimer = 0;

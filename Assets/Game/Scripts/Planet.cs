@@ -8,7 +8,7 @@ public class Planet : MonoBehaviour {
 
     void Start()
     {
-        health = 600;
+        health = 400;
     }
     private void Update()
     {

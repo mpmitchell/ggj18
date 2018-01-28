@@ -51,14 +51,17 @@ public class EarthController : MonoBehaviour {
       renderer.material = antiRadiowaveMaterial;
       gameObject.layer = LayerMask.NameToLayer("RadiowaveShield");
       shield.gameObject.layer = LayerMask.NameToLayer("RadiowaveShield");
+      shield.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
     } else if (Input.GetButtonDown("Anti-Rocket")) {
       renderer.material = antiRocketMaterial;
       gameObject.layer = LayerMask.NameToLayer("RocketShield");
       shield.gameObject.layer = LayerMask.NameToLayer("RocketShield");
+      shield.gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
     } else if (Input.GetButtonDown("Anti-Laser")) {
       renderer.material = antiLaserMaterial;
       gameObject.layer = LayerMask.NameToLayer("LaserShield");
       shield.gameObject.layer = LayerMask.NameToLayer("LaserShield");
+      shield.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
     if (sonarTimer <= 0f) {

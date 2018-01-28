@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 31ee9f9fb5b847348a7a009a058ca97a
+timeCreated: 1517097451
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Orbit-B BT
+  fontNames:
+  - Orbit-B BT
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

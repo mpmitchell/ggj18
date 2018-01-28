@@ -140,7 +140,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a33c19990f81f495abe29974695a398b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   timeToLive: 3
   timeBetweenTicks: 0.2
-  damagePerTick: 10
+  damagePerTick: 7
   particleEffect: {fileID: 4495968241644206}
   highTimeToLive: 6
   highDamage: 20

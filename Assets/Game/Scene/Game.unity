@@ -1454,6 +1454,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 642068128}
+<<<<<<< HEAD
 --- !u!1001 &647526756
 Prefab:
   m_ObjectHideFlags: 0
@@ -1754,6 +1755,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 323226766f6e3cd4388831a968026bfe, type: 3}
   m_IsPrefabParent: 0
+=======
+>>>>>>> 6eb2cb07f9c19c54d3718af17a968801f7c292d8
 --- !u!1 &769330825 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1333850950138562, guid: 63f93ee4f73854b1f908e3c5074e3596,

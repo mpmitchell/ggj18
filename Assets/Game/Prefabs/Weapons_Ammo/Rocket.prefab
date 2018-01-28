@@ -234,7 +234,7 @@ MonoBehaviour:
   speed: 15
   damage: 50
   highSpeed: 30
-  highDamage: 100
+  highDamage: 90
 --- !u!198 &198425727568760424
 ParticleSystem:
   m_ObjectHideFlags: 1

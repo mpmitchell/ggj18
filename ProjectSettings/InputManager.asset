@@ -28,7 +28,7 @@ InputManager:
     negativeButton: '[1]'
     positiveButton: 
     altNegativeButton: 1
-    altPositiveButton: joystick button 2
+    altPositiveButton: joystick 2 button 2
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -36,7 +36,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 2
+    joyNum: 0
   - serializedVersion: 3
     m_Name: Anti-Rocket
     descriptiveName: 
@@ -44,7 +44,7 @@ InputManager:
     negativeButton: '[2]'
     positiveButton: 
     altNegativeButton: 2
-    altPositiveButton: joystick button 3
+    altPositiveButton: joystick 2 button 3
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -52,7 +52,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 2
+    joyNum: 0
   - serializedVersion: 3
     m_Name: Anti-Laser
     descriptiveName: 
@@ -60,7 +60,7 @@ InputManager:
     negativeButton: '[3]'
     positiveButton: 
     altNegativeButton: 3
-    altPositiveButton: joystick button 1
+    altPositiveButton: joystick 2 button 1
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -68,7 +68,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 2
+    joyNum: 0
   - serializedVersion: 3
     m_Name: AlienHorizontal
     descriptiveName: 
@@ -84,7 +84,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: AlienVertical
     descriptiveName: 
@@ -107,8 +107,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: q
     positiveButton: e
-    altNegativeButton: joystick button 4
-    altPositiveButton: joystick button 5
+    altNegativeButton: joystick 1 button 4
+    altPositiveButton: joystick 1 button 5
     gravity: 100
     dead: 0
     sensitivity: 100
@@ -116,14 +116,14 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 0
   - serializedVersion: 3
     m_Name: AlienFire
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: space
     positiveButton: 
-    altNegativeButton: joystick button 0
+    altNegativeButton: joystick 1 button 0
     altPositiveButton: 
     gravity: 0
     dead: 0
@@ -132,7 +132,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 1
-    joyNum: 1
+    joyNum: 0
   - serializedVersion: 3
     m_Name: EarthFire
     descriptiveName: 
@@ -140,7 +140,7 @@ InputManager:
     negativeButton: enter
     positiveButton: 
     altNegativeButton: return
-    altPositiveButton: joystick button 0
+    altPositiveButton: joystick 2 button 0
     gravity: 0
     dead: 0
     sensitivity: 0.1
@@ -148,7 +148,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 1
-    joyNum: 2
+    joyNum: 0
   - serializedVersion: 3
     m_Name: AlienHorizontal
     descriptiveName: 

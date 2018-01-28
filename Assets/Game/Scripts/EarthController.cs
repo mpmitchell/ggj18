@@ -36,7 +36,7 @@ public class EarthController : MonoBehaviour {
 
   void Start() {
     earthPlayer = this;
-    baseScale = shield.localScale.x;
+    baseScale = transform.localScale.x;
     renderer = satellite.GetComponent<MeshRenderer>();
   }
 
@@ -84,9 +84,9 @@ public class EarthController : MonoBehaviour {
     if (scaleTimer > 0f) {
       scaleTimer -= Time.deltaTime;
       if (scaleTimer <= 0f) {
-        Vector3 scale = shield.localScale;
+        Vector3 scale = transform.localScale;
         scale.x = baseScale;
-        shield.localScale = scale;
+        transform.localScale = scale;
       }
     }
 
@@ -115,9 +115,9 @@ public class EarthController : MonoBehaviour {
   public void Scale(float newScale) {
     if (scaleTimer <= 0f) {
       scaleTimer = scaleTime;
-      Vector3 scale = shield.localScale;
+      Vector3 scale = transform.localScale;
       scale.x = newScale;
-      shield.localScale = scale;
+      transform.localScale = scale;
     }
   }
 

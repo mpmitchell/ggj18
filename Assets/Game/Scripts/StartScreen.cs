@@ -7,6 +7,7 @@ public class StartScreen : MonoBehaviour {
   public GameObject image1;
   public GameObject image2;
   public GameObject image3;
+  public GameObject image4;
 
   int stage = 0;
 
@@ -21,6 +22,10 @@ public class StartScreen : MonoBehaviour {
         image3.SetActive(true);
         stage = 2;
       } else if (stage == 2) {
+        image3.SetActive(false);
+        image4.SetActive(true);
+        stage = 3;
+      } else if (stage == 3) {
         SceneManager.LoadScene(2);
       }
     }

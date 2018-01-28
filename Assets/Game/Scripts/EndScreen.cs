@@ -6,13 +6,14 @@ public class EndScreen : MonoBehaviour {
 
   public static bool sos = false;
 
-  public Text text;
+  public GameObject humanityWins;
+  public GameObject aliensWins;
 
   void Start() {
     if (sos) {
-      text.text = "S.O.S. Successfull!";
+      humanityWins.SetActive(true);
     } else {
-      text.text = "S.O.S. Failed!";
+      aliensWins.SetActive(true);
     }
   }
 

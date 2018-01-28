@@ -21,7 +21,7 @@ public class Planet : MonoBehaviour {
     {
         if (health <= 0)
         {
-            towerCounterScript.remainingTower -= 0;
+            towerCounterScript.remainingTower = 0;
             Destroy(tower.gameObject);
             Destroy(tower2.gameObject);
             Destroy(tower3.gameObject);

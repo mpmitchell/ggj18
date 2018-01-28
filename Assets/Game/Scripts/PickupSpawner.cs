@@ -28,9 +28,9 @@ public class PickupSpawner : MonoBehaviour {
   void Update() {
     if (timer <= 0f) {
       if (Random.value >= (1f - chance)) {
-        if (earthPickupCount < maxNumberOfEarthPickups && alienPickupCount > maxNumberOfAlienPickups) {
+        if (earthPickupCount < maxNumberOfEarthPickups && alienPickupCount >= maxNumberOfAlienPickups) {
           SpawnEarthPickup();
-        } else if (alienPickupCount < maxNumberOfAlienPickups && earthPickupCount < maxNumberOfEarthPickups) {
+        } else if (alienPickupCount < maxNumberOfAlienPickups && earthPickupCount >= maxNumberOfEarthPickups) {
             SpawnAlienPickup();
         } else {
           if (Random.value <= 0.5f) {

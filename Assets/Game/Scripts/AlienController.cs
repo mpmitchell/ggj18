@@ -69,7 +69,7 @@ public class AlienController : MonoBehaviour {
   }
 
   void Update() {
-    float horiztontal = (inverted ? -1f : 1f) * -Input.GetAxis("AlienHorizontal") * speed * Time.deltaTime;
+    float horiztontal = (inverted ? -1f : 1f) * Input.GetAxis("AlienHorizontal") * speed * Time.deltaTime;
     float vertical = (inverted ? -1f : 1f) * -Input.GetAxis("AlienVertical") * speed * Time.deltaTime;
     float rotate = (inverted ? -1f : 1f) * Input.GetAxis("AlienRotation") * rotationalSpeed * Time.deltaTime;
     bool fire = Input.GetButtonDown("AlienFire");

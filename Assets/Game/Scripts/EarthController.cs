@@ -44,7 +44,7 @@ public class EarthController : MonoBehaviour {
     transform.RotateAround(
       Vector3.zero,
       Vector3.forward,
-      -Input.GetAxis("EarthHorizontal") * (inverted ? -1f : 1f) * speedMultiplier * speed * Time.deltaTime
+      Input.GetAxis("EarthHorizontal") * (inverted ? -1f : 1f) * speedMultiplier * speed * Time.deltaTime
     );
 
     if (Input.GetButtonDown("Anti-Radiowave")) {

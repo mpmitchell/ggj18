@@ -2,6 +2,8 @@
 
 public class Planet : MonoBehaviour {
 
+    public GameObject explosion;
+
     public int health;
     public GameObject tower;
     public GameObject tower2;
@@ -18,6 +20,7 @@ public class Planet : MonoBehaviour {
     {
         if (health <= 0)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(this.gameObject);
             Destroy(tower.gameObject);
             Destroy(tower2.gameObject);

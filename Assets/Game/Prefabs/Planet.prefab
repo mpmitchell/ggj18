@@ -200,5 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d2f7a404a984b11a6b48ed1cca8ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1707524073239064, guid: 89c9fd2ac79ea4547a2a923acc8d6480, type: 2}
   health: 0
+  tower: {fileID: 0}
+  tower2: {fileID: 0}
+  tower3: {fileID: 0}
+  tower4: {fileID: 0}
   renderer: {fileID: 0}

@@ -2,6 +2,8 @@
 
 public class Asteroids : MonoBehaviour {
 
+  public GameObject explosion;
+
 	void Update() {
     if (transform.position.magnitude > 100f) {
       Destroy(gameObject);
@@ -9,7 +11,7 @@ public class Asteroids : MonoBehaviour {
   }
 
   void OnCollisionEnter2D(Collision2D collision) {
-    // todo: add explosion
+    Instantiate(explosion, transform.position, transform.rotation);
     Destroy(gameObject);
   }
 }

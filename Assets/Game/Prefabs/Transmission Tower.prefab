@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a02ab49eb6f544b872998d38234889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 100006, guid: e076683e0305e35498b8e8834978c0fa, type: 2}
   health: 0
   slider: {fileID: 0}
   transmissionTimer: 0

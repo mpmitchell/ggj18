@@ -7,6 +7,8 @@ public class TowerScript : MonoBehaviour {
 
     static LinkedList<TowerScript> _towers = new LinkedList<TowerScript>();
 
+    public GameObject explosion;
+
     public int health;
     public Slider slider;
     public float transmissionTimer;
@@ -75,6 +77,7 @@ public class TowerScript : MonoBehaviour {
         if (health <=0)
         {
             transmissionOff = false;
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
         if (health >= 1 && transmissionOff == false)

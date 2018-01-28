@@ -28,11 +28,11 @@ public class PickupSpawner : MonoBehaviour {
   void Update() {
     if (timer <= 0f) {
       if (Random.value >= (1f - chance)) {
-        if (earthPickupCount < maxNumberOfEarthPickups && alienPickupCount >= maxNumberOfAlienPickups) {
+        if (alienPickupCount == maxNumberOfAlienPickups && alienPickupCount != maxNumberOfAlienPickups) {
           SpawnEarthPickup();
-        } else if (alienPickupCount < maxNumberOfAlienPickups && earthPickupCount >= maxNumberOfEarthPickups) {
+        } else if (earthPickupCount == maxNumberOfEarthPickups && earthPickupCount != maxNumberOfEarthPickups) {
             SpawnAlienPickup();
-        } else {
+        } else if (earthPickupCount != maxNumberOfEarthPickups && alienPickupCount != maxNumberOfAlienPickups) {
           if (Random.value <= 0.5f) {
             SpawnEarthPickup();
           } else {

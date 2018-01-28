@@ -9,6 +9,8 @@ public class AlienController : MonoBehaviour {
   public AudioClip rocketLaunch;
   public AudioClip radiowaveLaunch;
 
+  public GameObject particles;
+
 	public float speed;
   public float rotationalSpeed;
   public float rocketCooldown;
@@ -218,6 +220,7 @@ public class AlienController : MonoBehaviour {
       firing = 1f;
       rigidbody.AddForce(transform.position.normalized * repulsiveForce, ForceMode2D.Impulse);
     } else if (collider.gameObject.tag == "AlienPickup") {
+      Instantiate(particles, transform.position, transform.rotation);
       collider.gameObject.SendMessage("Pickup", this);
     }
   }

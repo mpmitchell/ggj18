@@ -3235,22 +3235,6 @@ Prefab:
       propertyPath: radioCD
       value: 
       objectReference: {fileID: 1217155295}
-    - target: {fileID: 4827702451993718, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -4.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756593005576022, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756593005576022, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756593005576022, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.59
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
   m_IsPrefabParent: 0

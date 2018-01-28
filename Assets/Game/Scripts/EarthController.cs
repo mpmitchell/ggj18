@@ -4,6 +4,8 @@ public class EarthController : MonoBehaviour {
 
   public static EarthController earthPlayer;
 
+  public GameObject particles;
+
   public Transform shield;
 
   public float speed;
@@ -95,6 +97,7 @@ public class EarthController : MonoBehaviour {
 
   void OnTriggerEnter2D(Collider2D collider) {
     if (collider.gameObject.tag == "EarthPickup") {
+      Instantiate(particles, transform.position, transform.rotation);
       collider.gameObject.SendMessage("Pickup", this);
     }
   }

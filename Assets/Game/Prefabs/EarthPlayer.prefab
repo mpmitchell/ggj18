@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d11fac2a13f43a5bd91401ee263736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 1829271178453096, guid: faa714f406b134fc08cb7888b88a6d4c, type: 2}
   shield: {fileID: 4762651521092628}
   speed: 200
   satellite: {fileID: 1948326259081252}

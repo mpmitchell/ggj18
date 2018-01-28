@@ -171,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864131796457552}
   m_LocalRotation: {x: 0.00000017136335, y: 0.0000009983778, z: 0.24560346, w: -0.9693704}
-  m_LocalPosition: {x: 1.4937997, y: -0.89739996, z: 0.58720684}
+  m_LocalPosition: {x: 2.43, y: -2.189, z: 0.59}
   m_LocalScale: {x: 2.4499996, y: 1.2250001, z: 1.4}
   m_Children: []
   m_Father: {fileID: 4414448366085692}
@@ -185,7 +185,7 @@ Transform:
   m_GameObject: {fileID: 1274951963271130}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.2, y: 4.200002, z: 4.200002}
+  m_LocalScale: {x: -4.2, y: 4.200002, z: 4.200002}
   m_Children: []
   m_Father: {fileID: 4414448366085692}
   m_RootOrder: 3
@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketLaunch: {fileID: 8300000, guid: 51cd4f4eb4f304fb587c80dade926ed9, type: 3}
   radiowaveLaunch: {fileID: 8300000, guid: c1acf75dd16194744a9414d117de2c67, type: 3}
+  particles: {fileID: 1829271178453096, guid: faa714f406b134fc08cb7888b88a6d4c, type: 2}
   speed: 20
   rotationalSpeed: -220
   rocketCooldown: 2

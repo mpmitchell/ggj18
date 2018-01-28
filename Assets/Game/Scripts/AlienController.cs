@@ -23,7 +23,7 @@ public class AlienController : MonoBehaviour {
   public Image laserCD;
   public Image radioCD;
 
-  new Rigidbody2D rigidbody;
+  Rigidbody2D rigidbody;
   public float repulsiveForce;
 
   new MeshRenderer renderer;

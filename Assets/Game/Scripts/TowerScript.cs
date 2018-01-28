@@ -12,6 +12,8 @@ public class TowerScript : MonoBehaviour {
     public int health;
     public Slider slider;
     public float transmissionTimer;
+    public GameObject textCounter;
+    public TowerCounter towerCounterScript;
 
     public GameObject earthController;
     private EarthController earthControllerScript;
@@ -54,6 +56,7 @@ public class TowerScript : MonoBehaviour {
         script1 = tower1.GetComponent<TowerScript>();
         script2 = tower2.GetComponent<TowerScript>();
         script3 = tower3.GetComponent<TowerScript>();
+        towerCounterScript = textCounter.GetComponent<TowerCounter>();
     }
 
 
@@ -76,6 +79,7 @@ public class TowerScript : MonoBehaviour {
         }
         if (health <=0)
         {
+            towerCounterScript.remainingTower -= 1;
             transmissionOff = false;
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(this.gameObject);

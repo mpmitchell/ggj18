@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 0}
-  timeToLive: 2
+  timeToLive: 0.5
 --- !u!120 &120782408431912614
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -219,7 +219,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0

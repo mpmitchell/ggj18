@@ -262,6 +262,11 @@ Prefab:
       propertyPath: m_Name
       value: Transmission Tower (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114886436015342550, guid: 975af515e56fe45b3b813edfa64ab00e,
+        type: 2}
+      propertyPath: textCounter
+      value: 
+      objectReference: {fileID: 1234708931}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975af515e56fe45b3b813edfa64ab00e, type: 2}
   m_IsPrefabParent: 0
@@ -423,7 +428,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.050980393, g: 0.75686276, b: 0.2, a: 1}
+    m_HighlightedColor: {r: 0.49019608, g: 0.6901961, b: 0.9098039, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1143,6 +1148,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114886436015342550, guid: 975af515e56fe45b3b813edfa64ab00e,
+        type: 2}
+      propertyPath: textCounter
+      value: 
+      objectReference: {fileID: 1234708931}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975af515e56fe45b3b813edfa64ab00e, type: 2}
   m_IsPrefabParent: 0
@@ -1193,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.050980393, g: 0.75686276, b: 0.2, a: 1}
+  m_Color: {r: 0.49019608, g: 0.6901961, b: 0.9098039, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1344,6 +1354,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114886436015342550, guid: 975af515e56fe45b3b813edfa64ab00e,
+        type: 2}
+      propertyPath: textCounter
+      value: 
+      objectReference: {fileID: 1234708931}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975af515e56fe45b3b813edfa64ab00e, type: 2}
   m_IsPrefabParent: 0
@@ -1397,7 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43137255, g: 0.47843137, b: 0.5294118, a: 1}
+  m_Color: {r: 0.49019608, g: 0.6901961, b: 0.9098039, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2203,7 +2218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05011895, g: 0.75735295, b: 0.20132065, a: 1}
+  m_Color: {r: 0.4894031, g: 0.6921366, b: 0.9117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2436,6 +2451,11 @@ Prefab:
       propertyPath: tower4
       value: 
       objectReference: {fileID: 1921385943}
+    - target: {fileID: 114943019555957466, guid: ca9efe7ab1f7344089522dec0cd6fea8,
+        type: 2}
+      propertyPath: textCounter
+      value: 
+      objectReference: {fileID: 1234708931}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca9efe7ab1f7344089522dec0cd6fea8, type: 2}
   m_IsPrefabParent: 0
@@ -2729,6 +2749,7 @@ GameObject:
   - component: {fileID: 1234708932}
   - component: {fileID: 1234708934}
   - component: {fileID: 1234708933}
+  - component: {fileID: 1234708935}
   m_Layer: 5
   m_Name: Radio Towers
   m_TagString: Untagged
@@ -2751,7 +2772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -25.283699, y: -18.85186}
+  m_AnchoredPosition: {x: -29.87, y: -18.85186}
   m_SizeDelta: {x: 265, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234708933
@@ -2766,7 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.050980393, g: 0.75686276, b: 0.2, a: 1}
+  m_Color: {r: 0.49019608, g: 0.6901961, b: 0.9098039, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2786,13 +2807,26 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Radio Towers /4
+  m_Text: Radio Towers  /4
 --- !u!222 &1234708934
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1234708931}
+--- !u!114 &1234708935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234708931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e812cee36315c2a47884d8c35789bf8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  remainingTower: 0
 --- !u!1 &1239149804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,6 +3173,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114886436015342550, guid: 975af515e56fe45b3b813edfa64ab00e,
+        type: 2}
+      propertyPath: textCounter
+      value: 
+      objectReference: {fileID: 1234708931}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975af515e56fe45b3b813edfa64ab00e, type: 2}
   m_IsPrefabParent: 0
@@ -3196,6 +3235,22 @@ Prefab:
       propertyPath: radioCD
       value: 
       objectReference: {fileID: 1217155295}
+    - target: {fileID: 4827702451993718, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756593005576022, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756593005576022, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756593005576022, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.59
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95cebc876cdcc4dd4b9530d7f009ba21, type: 2}
   m_IsPrefabParent: 0

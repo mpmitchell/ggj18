@@ -6,6 +6,9 @@ public class AlienController : MonoBehaviour {
 
   public static AlienController alien;
 
+  public AudioClip rocketLaunch;
+  public AudioClip radiowaveLaunch;
+
 	public float speed;
   public float rotationalSpeed;
   public float rocketCooldown;
@@ -140,6 +143,7 @@ public class AlienController : MonoBehaviour {
 
       if (rocketTimer <= 0f && r <= rw && r <= l) {
         Rocket rocket = Instantiate(rocketPrefab, rocketSpawn.position, rocketSpawn.rotation).GetComponent<Rocket>();
+        Audio.source.PlayOneShot(rocketLaunch);
         if (upgradedRocket) { rocket.Upgrade(); }
         RaycastHit2D aimAssitHit = Physics2D.Raycast(rocketSpawn.position, rocketSpawn.right, Mathf.Infinity, LayerMask.GetMask("AimAssist"));
         if (aimAssitHit.collider != null) {
@@ -151,6 +155,7 @@ public class AlienController : MonoBehaviour {
         firing = 1f;
       } else if (radiowaveTimer <= 0f && rw <= r && rw <= l) {
         Radiowave radiowave = Instantiate(radiowavePrefab, radiowaveSpawn.position, radiowaveSpawn.rotation).GetComponent<Radiowave>();
+        Audio.source.PlayOneShot(radiowaveLaunch);
         if (upgradedRadiowave) { radiowave.Upgrade(); }
         // radiowave.spawn = radiowaveSpawn;
         RaycastHit2D aimAssitHit = Physics2D.Raycast(radiowaveSpawn.position, radiowaveSpawn.right, Mathf.Infinity, LayerMask.GetMask("AimAssist"));

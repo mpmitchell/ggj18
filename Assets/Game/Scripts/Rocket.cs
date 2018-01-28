@@ -2,6 +2,8 @@
 
 public class Rocket : MonoBehaviour {
 
+  public AudioClip clip;
+
   public float speed;
   public float damage;
   public Vector3? target;
@@ -31,6 +33,7 @@ public class Rocket : MonoBehaviour {
 
   void OnCollisionEnter2D(Collision2D collision) {
     collision.gameObject.SendMessage("RocketHit", upgraded ? highDamage : damage, SendMessageOptions.DontRequireReceiver);
+    Audio.source.PlayOneShot(clip);
     Destroy(gameObject);
   }
 }

@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d11fac2a13f43a5bd91401ee263736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sonarLaunch: {fileID: 8300000, guid: 873463bb97f804ea48e565632ee95d84, type: 3}
   speed: 200
   satellite: {fileID: 1948326259081252}
   antiRadiowaveMaterial: {fileID: 2100000, guid: 01a03191b72bb3245bd023c329603cb1,

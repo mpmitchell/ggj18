@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9279117e2be424fc09300636f0e2b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 593471d82af844b09a080afe97e49525, type: 3}
   speed: 10
   damage: 40
   highSpeed: 15

@@ -4,6 +4,8 @@ public class EarthController : MonoBehaviour {
 
   public static EarthController earthPlayer;
 
+  public Transform shield;
+
   public float speed;
   public GameObject satellite;
   public Material antiRadiowaveMaterial;
@@ -28,8 +30,11 @@ public class EarthController : MonoBehaviour {
   public float invertedTime;
   float invertedTimer = 0f;
 
+  float baseScale;
+
   void Start() {
     earthPlayer = this;
+    baseScale = shield.localScale.x;
     renderer = satellite.GetComponent<MeshRenderer>();
   }
 
@@ -43,12 +48,15 @@ public class EarthController : MonoBehaviour {
     if (Input.GetButtonDown("Anti-Radiowave")) {
       renderer.material = antiRadiowaveMaterial;
       gameObject.layer = LayerMask.NameToLayer("RadiowaveShield");
+      shield.gameObject.layer = LayerMask.NameToLayer("RadiowaveShield");
     } else if (Input.GetButtonDown("Anti-Rocket")) {
       renderer.material = antiRocketMaterial;
       gameObject.layer = LayerMask.NameToLayer("RocketShield");
+      shield.gameObject.layer = LayerMask.NameToLayer("RocketShield");
     } else if (Input.GetButtonDown("Anti-Laser")) {
       renderer.material = antiLaserMaterial;
       gameObject.layer = LayerMask.NameToLayer("LaserShield");
+      shield.gameObject.layer = LayerMask.NameToLayer("LaserShield");
     }
 
     if (sonarTimer <= 0f) {
@@ -71,9 +79,9 @@ public class EarthController : MonoBehaviour {
     if (scaleTimer > 0f) {
       scaleTimer -= Time.deltaTime;
       if (scaleTimer <= 0f) {
-        Vector3 scale = transform.localScale;
-        scale.x = 0.8f;
-        transform.localScale = scale;
+        Vector3 scale = shield.localScale;
+        scale.x = baseScale;
+        shield.localScale = scale;
       }
     }
 
@@ -101,9 +109,9 @@ public class EarthController : MonoBehaviour {
   public void Scale(float newScale) {
     if (scaleTimer <= 0f) {
       scaleTimer = scaleTime;
-      Vector3 scale = transform.localScale;
+      Vector3 scale = shield.localScale;
       scale.x = newScale;
-      transform.localScale = scale;
+      shield.localScale = scale;
     }
   }
 

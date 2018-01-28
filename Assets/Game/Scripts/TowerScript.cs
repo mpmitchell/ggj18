@@ -27,10 +27,17 @@ public class TowerScript : MonoBehaviour {
 
     bool upgradedHit = false;
 
-    public static TowerScript[] GetTowers() {
-        TowerScript[] towers = new TowerScript[_towers.Count];
-        _towers.CopyTo(towers, 0);
-        return towers;
+    public static TowerScript GetMostDamagedTower() {
+        TowerScript lowestTower = _towers.First.Value;
+        int lowestHealth = 100;
+        foreach (TowerScript tower in _towers) {
+            if (tower.health < lowestHealth) {
+                lowestTower = tower;
+                lowestHealth = tower.health;
+            }
+        }
+
+        return lowestTower;
     }
 
     void Awake() {

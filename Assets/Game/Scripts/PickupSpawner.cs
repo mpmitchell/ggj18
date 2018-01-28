@@ -61,18 +61,15 @@ public class PickupSpawner : MonoBehaviour {
               }
             }
           }
-
+        }
         chance = baseChance;
-        }
-
-        if (chance <= maxChance) {
-          chance += Mathf.Min(maxChance, Time.deltaTime * speed);
-        }
-
-        timer = timeBetweenTicks;
-      } else {
-        timer -= Time.deltaTime;
       }
+      if (chance <= maxChance) {
+        chance = Mathf.Min(maxChance, chance + Time.deltaTime * speed);
+      }
+      timer = timeBetweenTicks;
+    } else {
+      timer -= Time.deltaTime;
     }
   }
 }

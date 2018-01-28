@@ -11,6 +11,24 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1851792424625772}
   m_IsPrefabParent: 1
+--- !u!1 &1333850950138562
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4762651521092628}
+  - component: {fileID: 33850147645221500}
+  - component: {fileID: 23058368962703472}
+  - component: {fileID: 95493071169857072}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1851792424625772
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851792424625772}
   m_LocalRotation: {x: -0.40229815, y: -0, z: -0, w: 0.9155087}
-  m_LocalPosition: {x: 0, y: 5.46, z: 0.53718233}
+  m_LocalPosition: {x: 0, y: 5.46, z: -4.6828175}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4723148395764482}
@@ -100,10 +118,58 @@ Transform:
   m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: 0.6532815, w: -0.27059805}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1.21285, y: 1.21285, z: 1.4620149}
-  m_Children: []
+  m_Children:
+  - {fileID: 4762651521092628}
   m_Father: {fileID: 4348712609007220}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 180, z: 45.000004}
+--- !u!4 &4762651521092628
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333850950138562}
+  m_LocalRotation: {x: -0.15395285, y: -0.37167504, z: -0.8458198, w: -0.35035002}
+  m_LocalPosition: {x: 0.84, y: 0.75, z: 1.38}
+  m_LocalScale: {x: 3.093298, y: 1.3246841, z: 0.33461353}
+  m_Children: []
+  m_Father: {fileID: 4723148395764482}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23058368962703472
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333850950138562}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 0a25dc768d627474495b513e9460fdb2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23139905397581146
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -179,6 +245,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948326259081252}
   m_Mesh: {fileID: 4300000, guid: 27f2b2fe5ef39c844975851ece89aed0, type: 3}
+--- !u!33 &33850147645221500
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333850950138562}
+  m_Mesh: {fileID: 4300000, guid: 6f804baae24443e4ca80e32634aa955d, type: 3}
 --- !u!33 &33863258486161844
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -231,6 +304,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.5965576, y: 3.2275062}
   m_EdgeRadius: 0
+--- !u!95 &95493071169857072
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333850950138562}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 6f804baae24443e4ca80e32634aa955d, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114196516771519092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d11fac2a13f43a5bd91401ee263736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonarLaunch: {fileID: 8300000, guid: 873463bb97f804ea48e565632ee95d84, type: 3}
+  shield: {fileID: 4762651521092628}
   speed: 200
   satellite: {fileID: 1948326259081252}
   antiRadiowaveMaterial: {fileID: 2100000, guid: 01a03191b72bb3245bd023c329603cb1,

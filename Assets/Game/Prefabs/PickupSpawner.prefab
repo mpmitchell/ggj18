@@ -62,9 +62,11 @@ MonoBehaviour:
   - {fileID: 4540946214017808, guid: 432a8f2f2b3e443389abedc37e75fd51, type: 2}
   - {fileID: 4741388553529846, guid: c58deef22f2424ca59ae2c941cb31c20, type: 2}
   earthCircleRadius: 5.5
-  maxNumberOfEarthPickups: 2
-  maxNumberOfAlienPickups: 2
+  maxNumberOfEarthPickups: 3
+  maxNumberOfAlienPickups: 5
   timeBetweenTicks: 1
   baseChance: 0.01
   maxChance: 0.5
-  speed: 1
+  speed: 0.02
+  timer: 0
+  chance: 0
